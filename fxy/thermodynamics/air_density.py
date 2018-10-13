@@ -71,5 +71,6 @@ D_atmosphere = (P_atmosphere*M)/(R*T_atmospehre)
 
 T_standard = T_atmospehre.subs(standard_values)
 P_standard = P_atmosphere.subs(standard_values)
-D_standard = D_atmosphere.subs(standard_values)
 
+# air density by height
+D_standard = D_atmosphere.subs(standard_values)
