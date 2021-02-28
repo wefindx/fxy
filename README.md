@@ -4,6 +4,36 @@ Just a convenience imports for scientific functions and packages for calculation
 `pip install fxy` to get the import shortcuts.
 `pip install fxy[all]` to install all libraries for which the shortcuts exist.
 
+```
+>>> from fxy.n import *
+>>> pi
+<pi: 3.14159~>
+
+>>> from fxy.ns import *
+>>> expr = x**4 - 4*x**3 + 4*x**2 - 2*x + 3
+>>> expr.subs([(x, 2), (y, 4), (z, 0)])
+-1
+
+>>> from fxy.nsa import *
+>>> df = pandas.DataFrame({'x': np.arange(10), 'y': np.random.random(10)})
+>>> df.sum()
+x    45.000000
+y     4.196558
+dtype: float64
+
+
+>>> from fxy.nsal import *
+>>> X = [[0], [1], [2], [3]]
+>>> y = [0, 0, 1, 1]
+>>> neigh = sklearn.neighbors.KNeighborsClassifier(n_neighbors=3)
+>>> neigh.fit(X, y)
+>>> print(neigh.predict([[1.1]]))
+[0]
+>>> print(neigh.predict_proba([[0.9]]))
+[[0.66666667 0.33333333]]
+```
+
+
 ## About
 I'm lazy every time importing things I need for computing basic things, doing things to emulate Python's capabilities in computational and symbolic mathematics and statistics, so this package will introduce just convenient imports so that I don't have to set up my Jupyter lab every time, and works well as an on-the-go calculator.
 

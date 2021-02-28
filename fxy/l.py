@@ -1,3 +1,3 @@
 # Machine Learning
 
-import sklearn
+from . import __sklearn__ as sklearn
