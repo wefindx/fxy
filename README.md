@@ -4,24 +4,42 @@ Just a convenience imports for scientific functions and packages for calculation
 `pip install fxy` to get the import shortcuts.
 `pip install fxy[all]` to install all libraries for which the shortcuts exist.
 
+## Usage
+
+- `from fxy.n import *`, if you need just `mpmath`.
+- `from fxy.np import *`, if you need just `mpmath` and `matplotlib`.
+- `from fxy.ns import *`, if you need just `mpmath` and `sympy`.
+- `from fxy.nsp import *`, if you need just `mpmath`, `sympy`, and `matplotlib`.
+- `from fxy.nsa import *`, if you need just `mpmath`, `sympy`, `numpy`, `pandas`, `scipy`, `statsmodels`.
+- `from fxy.nsap import *`, if you need just `mpmath`, `sympy`, `numpy`, `pandas`, `scipy`, `statsmodels`, and `matplotlib`.
+- `from fxy.nsal import *`, if you need just `mpmath`, `sympy`, `numpy`, `pandas`, `scipy`, `statsmodels` and `sklearn`.
+- `from fxy.nsalp import *`, if you need just `mpmath`, `sympy`, `numpy`, `pandas`, `scipy`, `statsmodels`, `sklearn`, and `matplotlib`.
+
+## Examples
+
 ```
 >>> from fxy.n import *
 >>> pi
 <pi: 3.14159~>
+```
 
+```
 >>> from fxy.ns import *
 >>> expr = x**4 - 4*x**3 + 4*x**2 - 2*x + 3
 >>> expr.subs([(x, 2), (y, 4), (z, 0)])
 -1
+```
 
+```
 >>> from fxy.nsa import *
 >>> df = pandas.DataFrame({'x': np.arange(10), 'y': np.random.random(10)})
 >>> df.sum()
 x    45.000000
 y     4.196558
 dtype: float64
+```
 
-
+```
 >>> from fxy.nsal import *
 >>> X = [[0], [1], [2], [3]]
 >>> y = [0, 0, 1, 1]
@@ -32,7 +50,6 @@ dtype: float64
 >>> print(neigh.predict_proba([[0.9]]))
 [[0.66666667 0.33333333]]
 ```
-
 
 ## About
 I'm lazy every time importing things I need for computing basic things, doing things to emulate Python's capabilities in computational and symbolic mathematics and statistics, so this package will introduce just convenient imports so that I don't have to set up my Jupyter lab every time, and works well as an on-the-go calculator.
@@ -75,18 +92,6 @@ import scipy.interpolate
 ```
 
 I often collect convenient computations and functions in various fields, like what **[WolframAlpha](https://www.wolframalpha.com)** [does](https://wiki.mindey.com/shared/screens/Screenshot_2021-02-28_06-16-43.png) cataloguing implementations of advanced computations to be reused.
-
-
-## Usage
-
-`from fxy.n import *`, if you need just `mpmath`.
-`from fxy.np import *`, if you need just `mpmath` and `matplotlib`.
-`from fxy.ns import *`, if you need just `mpmath` and `sympy`.
-`from fxy.nsp import *`, if you need just `mpmath`, `sympy`, and `matplotlib`.
-`from fxy.nsa import *`, if you need just `mpmath`, `sympy`, `numpy`, `pandas`, `scipy`, `statsmodels`.
-`from fxy.nsap import *`, if you need just `mpmath`, `sympy`, `numpy`, `pandas`, `scipy`, `statsmodels`, and `matplotlib`.
-`from fxy.nsal import *`, if you need just `mpmath`, `sympy`, `numpy`, `pandas`, `scipy`, `statsmodels` and `sklearn`.
-`from fxy.nsalp import *`, if you need just `mpmath`, `sympy`, `numpy`, `pandas`, `scipy`, `statsmodels`, `sklearn`, and `matplotlib.
 
 ## Explanation
 
