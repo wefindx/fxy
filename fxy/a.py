@@ -9,3 +9,6 @@ import scipy.stats as st
 import statsmodels
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
+
+# And plotting
+from fxy.p import *

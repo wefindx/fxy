@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='fxy',
-    version='0.1.4',
+    version='0.1.6',
     description='Convenience imports and scientific functions.',
     url='https://github.com/mindey/fxy',
     author='Mindey',
