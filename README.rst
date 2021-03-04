@@ -8,8 +8,7 @@ calculation.
 
 -  ``pip install fxy`` to get the import shortcuts.
 -  ``pip install fxy[main]`` to install all libraries except ``xgboost``,
--  ``pip install fxy[all]`` to install all libraries for which the
-shortcuts exist.
+-  ``pip install fxy[all]`` to install all libraries for which the shortcuts exist.
 
 Usage
 -----
