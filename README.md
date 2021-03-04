@@ -7,7 +7,7 @@ Just a convenience imports for scientific functions and packages for calculation
 ## Usage
 
 - `from fxy.n import *`, if you need `mpmath` and plotting.
-- `from fxy.s import *`, if you need `isympy` things.
+- `from fxy.s import *`, if you need [`isympy`](https://linux.die.net/man/1/isympy) imports.
 - `from fxy.a import *`, if you need `numpy`, `pandas`, `scipy`, `statsmodels` and `matplotlib`.
 - `from fxy.p import *`, if you need `matplotlib`.
 - `from fxy.l import *`, if you need `sklearn.* as sklearn`.
