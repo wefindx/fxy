@@ -6,11 +6,11 @@ Just a convenience imports for scientific functions and packages for calculation
 
 ## Usage
 
-`from fxy.n import *`, if you need `mpmath` and plotting.
-`from fxy.s import *`, if you need `isympy` things.
-`from fxy.a import *`, if you need `numpy`, `pandas`, `scipy`, `statsmodels` and `matplotlib`.
-`from fxy.p import *`, if you need `matplotlib`.
-`from fxy.l import *`, if you need `sklearn.* as sklearn`.
+- `from fxy.n import *`, if you need `mpmath` and plotting.
+- `from fxy.s import *`, if you need `isympy` things.
+- `from fxy.a import *`, if you need `numpy`, `pandas`, `scipy`, `statsmodels` and `matplotlib`.
+- `from fxy.p import *`, if you need `matplotlib`.
+- `from fxy.l import *`, if you need `sklearn.* as sklearn`.
 
 ## About
 This package may be useful for computing basic things, doing things to emulate Python's capabilities in computational and symbolic mathematics and statistics, so this package will introduce just convenient imports so that one doesn't have to [configure Jupyter notebook profile](https://mindey.com/blog/how_to_set_up_ipython_for_statistics_on_linux), to have those imports every time, and works well as an on-the-go calculator.
