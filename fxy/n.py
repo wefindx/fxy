@@ -1,5 +1,8 @@
 # Numeric (Mathematical)
 
-from mpmath import *; import mpmath
+try:
+    from mpmath import *; import mpmath
+except:
+    pass
 
 # Plotting is included
