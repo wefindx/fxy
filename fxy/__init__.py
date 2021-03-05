@@ -4,7 +4,7 @@ def interact(module='n', mode=''):
 
     # BPython
     if mode == 'b':
-        path = os.path.normpath(os.path.join(__loader__.path, '../__paste__/{module}.py'))
+        path = os.path.normpath(os.path.join(__loader__.path, f'../__paste__/{module}.py'))
         os.system(f'{mode}python -i -q -p {path}')
 
     # Python & IPython
@@ -18,6 +18,7 @@ def main():
 
     # Mode
     parser.add_argument('-i', '--ipython', action='store_false', default=True, help='IPython.')
+    parser.add_argument('-b', '--bpython', action='store_false', default=True, help='BPython.')
 
     # Module
     parser.add_argument('-n', '--numeric', action='store_false', default=True, help='Numeric.')
@@ -29,7 +30,7 @@ def main():
     args = parser.parse_args()
 
     i = not args.ipython
-    b = not args.ipython
+    b = not args.bpython
 
     n = not args.numeric
     s = not args.symbolic
@@ -40,9 +41,8 @@ def main():
 
     if i:
         mode = 'i'
-    if b:
+    elif b:
         mode = 'b'
-
     else:
         # Default is plain Python shell.
         mode = ''
