@@ -61,7 +61,7 @@ packages will exist for a long time to come, so it is
     -1
     >>> plot(f)
 
-    # Actuarial (np: numpy, pd: pandas, sm: statsmodels.api, st: scipy.stats, scipy, smf: statsmodels.formula.api, statsmodels)
+    # Actuarial (np: numpy, pd: pandas, sm: statsmodels.api, sp: scipy, st: scipy.stats, smf: statsmodels.formula.api, statsmodels)
     >>> from fxy.a import *
     >>> df = pandas.DataFrame({'x': numpy.arange(10), 'y': np.random.random(10)})
     >>> df.sum()
