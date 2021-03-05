@@ -13,7 +13,7 @@ Usage
 -----
 
 -  ``from fxy.n import *``, if you need ``mpmath`` and plotting.
--  ``from fxy.s import *``, if you need **isympy** `[*] <https://linux.die.net/man/1/isympy>`__ imports.
+-  ``from fxy.s import *``, if you need ``sympy`` imports (exactly like in ``isympy``).
 -  ``from fxy.a import *``, if you need ``numpy``, ``pandas``, ``xarray``,
    ``scipy``, ``statsmodels`` and ``matplotlib``, ``seaborn``.
 -  ``from fxy.p import *``, if you need ``matplotlib`` and ``seaborn``.
