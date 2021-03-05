@@ -5,7 +5,7 @@ with open('README.rst', 'r') as f:
 
 setup(
     name='fxy',
-    version='0.1.9',
+    version='0.2.0',
     description='Convenience imports and scientific functions.',
     long_description=long_description,
     url='https://github.com/mindey/fxy',
@@ -13,11 +13,12 @@ setup(
     author_email='mindey@qq.com',
     license='UNLICENSE',
     packages = find_packages(exclude=['docs', 'tests*']),
-    install_requires=['bpython', 'ipython'],
+    install_requires=[],
     extras_require = {
         'test': ['coverage', 'pytest', 'pytest-cov'],
-        'main': ["sympy", "xarray", "scipy", "statsmodels", "sklearn", "matplotlib", "seaborn"],
-        'all': ["sympy", "xarray", "scipy", "statsmodels", "sklearn", "matplotlib", "seaborn"] + ["xgboost"]
+        'shells': ['bpython', 'ipython'],
+        'main': ["bpython", "ipython", "sympy", "xarray", "scipy", "statsmodels", "sklearn", "matplotlib", "seaborn"],
+        'all': ["bpython", "ipython"] + ["sympy", "xarray", "scipy", "statsmodels", "sklearn", "matplotlib", "seaborn"] + ["xgboost"]
     },
     zip_safe=False,
     entry_points = {

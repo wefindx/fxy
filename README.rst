@@ -12,12 +12,19 @@ Just a convenience imports for scientific functions and packages for calculation
 Usage
 -----
 
+If you are in existing environment of some kind, just do, to import:
+
 -  ``from fxy.n import *``, if you need ``mpmath`` and plotting.
 -  ``from fxy.s import *``, if you need |isympy|_ imports.
 -  ``from fxy.a import *``, if you need ``numpy``, ``pandas``, ``xarray``,
    ``scipy``, ``statsmodels`` and ``matplotlib``, ``seaborn``.
 -  ``from fxy.p import *``, if you need ``matplotlib`` and ``seaborn``.
 -  ``from fxy.l import *``, if you need ``sklearn.* as sklearn`` and ``xgboost``.
+
+If you are in command line, and just want Python with something, run:
+
+-  ``$ fxy -[n|s|a|p|l]`` - to do with Python
+-  ``$ fxy -i[n|s|a|p|l]`` - to do with IPython
 
 About
 -----
