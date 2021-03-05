@@ -25,6 +25,7 @@ If you are in command line, and just want Python with something, run:
 
 -  ``$ fxy -[n|s|a|p|l]`` - to do with Python
 -  ``$ fxy -i[n|s|a|p|l]`` - to do with IPython
+-  ``$ fxy -b[n|s|a|p|l]`` - to do with BPython
 
 About
 -----
