@@ -10,6 +10,8 @@ Just a convenience imports for scientific functions and packages for calculation
 -  ``pip3 install fxy[all]`` (slow) to install all libraries for which the shortcuts exist.
 
 
+.. image:: https://wiki.mindey.com/shared/shots/53dcf81b7efd0573f07c5f562.png
+   :target: https://wiki.mindey.com/shared/shots/5be13ae88af63324fbbd6f06c-set-of-imports.mp4
 
 Usage
 -----
