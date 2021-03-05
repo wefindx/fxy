@@ -8,7 +8,7 @@ def interact(module='n', mode=''):
         os.system(f'{mode}python -i -q -p {path}')
 
     # Python & IPython
-    os.system(f'{mode}python -i -c "from fxy.{module} import *"')
+    os.system(f'{mode}python3 -i -c "from fxy.{module} import *"')
 
 
 def main():
