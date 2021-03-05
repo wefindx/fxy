@@ -1,8 +1,9 @@
 fxy
 ===
+.. |isympy| replace:: ``isympy``
 
-Just a convenience imports for scientific functions and packages for
-calculation.
+
+Just a convenience imports for scientific functions and packages for calculation.
 
 -  ``pip install fxy`` to get the import shortcuts.
 -  ``pip install fxy[main]`` to install all libraries except ``xgboost``,
@@ -13,7 +14,7 @@ Usage
 -----
 
 -  ``from fxy.n import *``, if you need ``mpmath`` and plotting.
--  ``from fxy.s import *``, if you need ``sympy`` imports (exactly like in ``isympy``).
+-  ``from fxy.s import *``, if you need |isympy|_ imports.
 -  ``from fxy.a import *``, if you need ``numpy``, ``pandas``, ``xarray``,
    ``scipy``, ``statsmodels`` and ``matplotlib``, ``seaborn``.
 -  ``from fxy.p import *``, if you need ``matplotlib`` and ``seaborn``.
@@ -79,3 +80,7 @@ I often collect convenient computations and functions in various fields,
 like what `WolframAlpha <https://www.wolframalpha.com>`__
 `does <https://wiki.mindey.com/shared/screens/Screenshot_2021-02-28_06-16-43.png>`__
 cataloguing implementations of advanced computations to be reused.
+
+
+.. _isympy:
+    https://linux.die.net/man/1/isympy
