@@ -19,7 +19,7 @@ If you are in existing environment of some kind, just do, to import:
 -  ``from fxy.a import *``, if you need ``numpy``, ``pandas``, ``xarray``,
    ``scipy``, ``statsmodels`` and ``matplotlib``, ``seaborn``.
 -  ``from fxy.p import *``, if you need ``matplotlib`` and ``seaborn``.
--  ``from fxy.l import *``, if you need ``sklearn.* as sklearn`` and ``xgboost``.
+-  ``from fxy.l import *``, if you need ``sklearn.* as sklearn`` and ``xgboost as xgb``.
 
 If you are in command line, and just want Python with something, run:
 
