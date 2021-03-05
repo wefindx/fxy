@@ -5,9 +5,11 @@ fxy
 
 Just a convenience imports for scientific functions and packages for calculation.
 
--  ``pip install fxy`` to get the import shortcuts.
--  ``pip install fxy[main]`` to install all libraries except ``xgboost``,
--  ``pip install fxy[all]`` to install all libraries for which the shortcuts exist.
+-  ``pip3 install fxy`` to get the import shortcuts.
+-  ``pip3 install fxy[main]`` to install all libraries except ``xgboost``,
+-  ``pip3 install fxy[all]`` (slow) to install all libraries for which the shortcuts exist.
+
+
 
 Usage
 -----

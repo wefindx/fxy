@@ -6,9 +6,9 @@ def interact(module='n', mode=''):
     if mode == 'b':
         path = os.path.normpath(os.path.join(__loader__.path, f'../__paste__/{module}.py'))
         os.system(f'{mode}python -i -q -p {path}')
-
-    # Python & IPython
-    os.system(f'{mode}python3 -i -c "from fxy.{module} import *"')
+    else:
+        # Python & IPython
+        os.system(f'{mode}python3 -i -c "from fxy.{module} import *"')
 
 
 def main():
