@@ -1,4 +1,6 @@
 import os
+import tempfile
+
 
 def interact(modules=['n'], mode=''):
     command = 'from fxy.{} import *'
@@ -6,10 +8,10 @@ def interact(modules=['n'], mode=''):
     # BPython
     if mode == 'b':
         commands = '\n'.join([command.format(module) for module in modules]) + '\n'
-        path = os.path.normpath(os.path.join(__loader__.path, f'../__paste__/commands.txt'))
-        with open(path, 'w') as f:
+        with tempfile.NamedTemporaryFile(mode='wt', delete=False) as f:
             f.write(commands)
-        os.system(f'{mode}python -i -q -p {path}')
+        os.system(f'{mode}python -i -q -p {f.name}')
+        os.system(f'rm {f.name}')
     else:
         # Python & IPython
         commands = '; '.join([command.format(module) for module in modules])
