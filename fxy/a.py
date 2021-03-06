@@ -20,7 +20,7 @@ except:
 
 try:
     import scipy
-    import scipy as sp
+    from . import __scipy__ as sp
     import scipy.stats as st
 except:
     pass
