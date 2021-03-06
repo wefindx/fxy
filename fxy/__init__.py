@@ -1,14 +1,19 @@
 import os
 
-def interact(module='n', mode=''):
+def interact(modules=['n'], mode=''):
+    command = 'from fxy.{} import *'
 
     # BPython
     if mode == 'b':
-        path = os.path.normpath(os.path.join(__loader__.path, f'../__paste__/{module}.py'))
+        commands = '\n'.join([command.format(module) for module in modules]) + '\n'
+        path = os.path.normpath(os.path.join(__loader__.path, f'../__paste__/commands.txt'))
+        with open(path, 'w') as f:
+            f.write(commands)
         os.system(f'{mode}python -i -q -p {path}')
     else:
         # Python & IPython
-        os.system(f'{mode}python3 -i -c "from fxy.{module} import *"')
+        commands = '; '.join([command.format(module) for module in modules])
+        os.system(f'{mode}python3 -i -c "{commands}"')
 
 
 def main():
@@ -41,27 +46,23 @@ def main():
 
     if i:
         mode = 'i'
-    elif b:
+    else:
+        # Default is plain BPython shell for faster loading +  providing educational info.
         mode = 'b'
-    else:
-        # Default is plain Python shell.
-        mode = ''
 
+    # Default is MPMath for "calculator"
+    modules = ['n']
+
+    if s:
+        modules.append('s')
+    if a:
+        modules.append('a')
+    if l:
+        modules.append('l')
     if p:
-        module = 'p'
-    elif n:
-        module = 'n'
-    elif s:
-        module = 's'
-    elif a:
-        module = 'a'
-    elif l:
-        module = 'l'
-    else:
-        # Default is MPMath for "calculator"
-        module = 'n'
+        modules.append('p')
 
-    interact(module, mode)
+    interact(modules, mode)
 
 if __name__ == '__main__':
     main()

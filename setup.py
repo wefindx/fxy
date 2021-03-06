@@ -5,7 +5,7 @@ with open('README.rst', 'r') as f:
 
 setup(
     name='fxy',
-    version='0.2.6',
+    version='0.2.7',
     description='Convenience imports and scientific functions.',
     long_description=long_description,
     url='https://github.com/mindey/fxy',
