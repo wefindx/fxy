@@ -1,4 +1,5 @@
 import os
+import sys
 import tempfile
 
 
@@ -46,7 +47,7 @@ def main():
     p = not args.plotting
 
 
-    if i:
+    if i or sys.platform.startswith('win'):
         mode = 'i'
     else:
         # Default is plain BPython shell for faster loading +  providing educational info.
