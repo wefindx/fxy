@@ -1,7 +1,7 @@
 # Numeric (Mathematical)
 
 try:
-    from mpmath import *; import mpmath as mp
+    from mpmath import *
 except:
     pass
 
