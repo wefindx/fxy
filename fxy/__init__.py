@@ -1,5 +1,4 @@
 import os
-import sys
 import tempfile
 
 
@@ -47,11 +46,11 @@ def main():
     p = not args.plotting
 
 
-    if i or sys.platform.startswith('win'):
-        mode = 'i'
-    else:
-        # Default is plain BPython shell for faster loading +  providing educational info.
+    if b:
         mode = 'b'
+    else:
+        # Default is plain IPython shell, cause more common.
+        mode = 'i'
 
     # Default is MPMath for "calculator"
     modules = ['n']
