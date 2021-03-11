@@ -10,17 +10,6 @@ Just a convenience imports for scientific functions and packages for calculation
 -  ``pip3 install fxy[all]`` (slow) to install all libraries for which the shortcuts exist.
 
 
-.. image:: https://wiki.mindey.com/shared/screens/video-cover.png
-   :target: https://wiki.mindey.com/shared/shots/5be13ae88af63324fbbd6f06c-set-of-imports.mp4
-
-Usage
------
-If you are in command line, and just want Python with something, run:
-
--  ``$ fxy -[n|s|a|p|l]`` - to do with Python
--  ``$ fxy -i[n|s|a|p|l]`` - to do with IPython
--  ``$ fxy -b[n|s|a|p|l]`` - to do with BPython
-
 If you are in existing environment of some kind, just do, to import:
 
 -  ``from fxy.n import *``, if you need ``mpmath`` and plotting.
@@ -30,6 +19,19 @@ If you are in existing environment of some kind, just do, to import:
 -  ``from fxy.p import *``, if you need ``matplotlib`` and ``seaborn``.
 -  ``from fxy.l import *``, if you need ``sklearn.* as sklearn`` and ``xgboost as xgb``.
 
+
+.. image:: https://wiki.mindey.com/shared/screens/video-cover.png
+   :target: https://wiki.mindey.com/shared/shots/5be13ae88af63324fbbd6f06c-set-of-imports.mp4
+
+Usage
+-----
+If you are in command line, and just want Python with something, run:
+
+-  ``$ fx -[n|s|a|p|l]`` - to do with Python
+-  ``$ fx -i[n|s|a|p|l]`` - to do with IPython
+-  ``$ fx -b[n|s|a|p|l]`` - to do with BPython
+
+Command `fxy` or `fx` are equivalent.
 
 About
 -----
