@@ -31,7 +31,20 @@ If you are in command line, and just want Python with something, run:
 -  ``$ fx -i[n|s|a|p|l]`` - to do with IPython
 -  ``$ fx -b[n|s|a|p|l]`` - to do with BPython
 
-Command `fxy` or `fx` are equivalent.
+Command ``fxy`` or ``fx`` are equivalent, so you can override the ``fxy`` with something convenient.
+
+For example, if you are using ``vim`` with ``tmux`` with `slimux <https://github.com/esamattis/slimux>`__, suggest adding ``~/.zshrc``:
+
+::
+
+   fxy() {
+       mkdir -p "/home/user/research/$1"
+       cd "/home/user/research/$1"
+       touch main.py
+       tmux new -s "$1-research" 'zsh' \; send-keys "vim main.py" Enter \; splitw -hd "python3 -mvenv .env && . .env/bin/activate; fx -bap"
+   }
+
+This way, running something like ``fxy project-name`` makes a project folder and starts Python environment with packages ``fx -bap``.
 
 About
 -----
