@@ -38,11 +38,25 @@ For example, if you are using ``vim`` with ``tmux`` with `slimux <https://github
 ::
 
    fxy() {
-       mkdir -p "/home/user/research/$1"
-       cd "/home/user/research/$1"
-       touch main.py
-       tmux new -s "$1-research" 'zsh' \; send-keys "vim main.py" Enter \; splitw -hd "python3 -mvenv .env && . .env/bin/activate; fx -bap"
+      if [ -n "$1" ]
+        then
+          mkdir -p "/home/mindey/Projects/Research/mindey/$1"
+          cd "/home/mindey/Projects/Research/mindey/$1"
+          touch main.py
+          tmux new -s "$1-research" 'zsh' \; send-keys "vim main.py" Enter \; splitw -hd "python3 -mvenv .env && . .env/bin/activate; fx -bap"
+        else
+          echo "No project name selected."
+      fi
    }
+
+or simply use it for some custom initialization that you often use, like:
+
+::
+
+   fxy() {
+       fx -s
+   }
+
 
 This way, running something like ``fxy project-name`` makes a project folder and starts Python environment with packages ``fx -bap``.
 
