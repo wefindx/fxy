@@ -49,7 +49,9 @@ For example, if you are using ``vim`` with ``tmux`` with `slimux <https://github
       fi
    }
 
-or simply use it for some custom initialization that you often use, like:
+This way, running something like ``fxy project-name`` makes a project folder and starts Python environment with packages ``fx -bap``.
+
+Or simply use `fxy` as shortcut for some custom initialization that you often use, like:
 
 ::
 
@@ -58,7 +60,6 @@ or simply use it for some custom initialization that you often use, like:
    }
 
 
-This way, running something like ``fxy project-name`` makes a project folder and starts Python environment with packages ``fx -bap``.
 
 About
 -----
