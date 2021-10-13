@@ -4,11 +4,11 @@ fxy
 
 Mnemonic imports and command ``fx`` with parameters to import libraries often used in research.
 
--  ``n`` (NUMERIC MATH)
--  ``s`` (SYMBOLIC MATH)
--  ``a`` (ACTUARIAL: STATISTICS & SCIENCE)
--  ``l`` (MACHINE LEARNING)
--  ``p`` (PLOTING).
+-  ``n`` (**N**\ UMERIC MATH)
+-  ``s`` (**S**\ YMBOLIC MATH)
+-  ``a`` (**A**\ CTUARIAL: STATISTICS & SCIENCE)
+-  ``l`` (MACHINE **L**\ EARNING)
+-  ``p`` (**P**\ LOTING).
 
 
 Introduction
