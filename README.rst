@@ -37,6 +37,7 @@ Usage
 -----
 The package defines the `fx` command, if you just want Python with something, run:
 
+-  ``$ fx -i[n|s|a|p|l]`` - plain Python (i: "IPython off")
 -  ``$ fx -[n|s|a|p|l]`` - with IPython
 -  ``$ fx -b[n|s|a|p|l]`` - with BPython and comments
 

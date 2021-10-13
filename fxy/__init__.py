@@ -48,7 +48,7 @@ def main():
 
     args = parser.parse_args()
 
-    i = not args.ipython
+    i = not args.ipython # to disable IPython shell
     b = not args.bpython
 
     n = not args.numeric
@@ -59,9 +59,13 @@ def main():
 
 
     if b:
+        # BPython shell, cause more common.
         mode = 'b'
+    elif i:
+        # Plain Python shell (i.e., disable IPython shell).
+        mode = ''
     else:
-        # Default is plain IPython shell, cause more common.
+        # Default is IPython shell, cause more common.
         mode = 'i'
 
     # Default is MPMath for "calculator"
