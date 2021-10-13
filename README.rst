@@ -90,7 +90,7 @@ packages will exist for a long time to come, so it is
     >>> from fxy.l import *
     >>> X = [[0], [1], [2], [3]]
     >>> y = [0, 0, 1, 1]
-    >>> neigh = skl.neighbors.KNeighborsClassifier(n_neighbors=3)
+    >>> neigh = sklearn.neighbors.KNeighborsClassifier(n_neighbors=3)
     >>> neigh.fit(X, y)
     >>> print(neigh.predict([[1.1]]))
     [0]
