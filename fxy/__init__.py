@@ -5,9 +5,21 @@ import tempfile
 def interact(modules=['n'], mode=''):
     command = 'from fxy.{} import *'
 
+    annotation = lambda x: {
+        'n': 'from mpmath import *',
+        's': 'from __future__ import division; from sympy import *; x, y, z = symbols("xyz"); k, m, n = symbols("kmn", integer=True)',
+        'a': 'numpy & np, pandas & pd, xarray & xr, scipy & sp, scipy.stats & st, statsmodels & sm, statsmodels.formula.api & smf',
+        'l': 'from . import __sklearn__ as sklearn; xgboost & xgb',
+        'p': 'matplotlib.pyplot & plt; matplotlib; seaborn & sns'
+    }.get(x) or ''
+
     # BPython
     if mode == 'b':
-        commands = '\n'.join([command.format(module) for module in modules]) + '\n'
+
+        commands = '\n'.join([
+            command.format(module) + ' # ' + str(annotation(module))
+            for module in modules]) + '\n'
+
         with tempfile.NamedTemporaryFile(mode='wt', delete=False) as f:
             f.write(commands)
         os.system(f'{mode}python -i -q -p {f.name}')
