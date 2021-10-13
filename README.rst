@@ -2,47 +2,69 @@ fxy
 ===
 .. |isympy| replace:: ``isympy``
 
+Mnemonic imports and command ``fx`` with parameters to import libraries often used in research.
 
-Just a convenience imports for scientific functions and packages for calculation.
+-  ``n`` (NUMERIC MATH)
+-  ``s`` (SYMBOLIC MATH)
+-  ``a`` (ACTUARIAL: STATISTICS & SCIENCE)
+-  ``l`` (MACHINE LEARNING)
+-  ``p`` (PLOTING).
+
+
+Introduction
+------------
+
+The people who come from tools like Maple, Matlab, Mathematica, and R, may find that Python requires a lot of mathematical imports just to start doing basic stuff. So, I tried to simplify it -- simply ``pip install fxy``, and you've got a command ``fx``, that starts Python with ``mpmath`` stuff pre-imported: so, you can start using Python like a calculator right away. If you need more, like symbolics, or statistics, or machine learning, -- these things are import-able with extra parameter, e.g., ``fx -s`` for |isympy|_ (shorter than typing `isympy`), or just by running import import shortcuts described below:
+
+::
+
+    >>> from fxy.n import * # Numeric: from mpmath import *
+    >>> from fxy.s import * # Symbolic: import sympy; exec(sympy.interactive.session.preexec_source)
+    >>> from fxy.a import * # Actuarial: numpy, np, pandas, pd, xarray, xr, scipy, sp, scipy.stats, st, statsmodels, sm, statsmodels.formula.api, smf
+    >>> from fxy.l import * # Learning: sklearn, xgboost, xgb
+    >>> from fxy.p import * # Plotting: matplotlib.pyplot, plt, matplotlib, seaborn, sns
+
+
+Installation
+------------
 
 -  ``pip3 install fxy`` to get the import shortcuts.
 -  ``pip3 install fxy[main]`` to install all libraries except ``xgboost``,
 -  ``pip3 install fxy[all]`` (slow) to install all libraries for which the shortcuts exist.
 
 
-If you are in existing environment of some kind, just do, to import:
-
--  ``from fxy.n import *``, if you need ``mpmath`` and plotting.
--  ``from fxy.s import *``, if you need |isympy|_ imports.
--  ``from fxy.a import *``, if you need ``numpy``, ``pandas``, ``xarray``,
-   ``scipy``, ``statsmodels``.
--  ``from fxy.p import *``, if you need ``matplotlib`` and ``seaborn``.
--  ``from fxy.l import *``, if you need ``sklearn.* as sklearn`` and ``xgboost as xgb``.
-
-
-.. image:: https://wiki.mindey.com/shared/screens/video-cover.png
-   :target: https://wiki.mindey.com/shared/shots/5be13ae88af63324fbbd6f06c-set-of-imports.mp4
-
 Usage
 -----
 The package defines the `fx` command, if you just want Python with something, run:
 
 -  ``$ fx -[n|s|a|p|l]`` - with IPython
--  ``$ fx -b[n|s|a|p|l]`` - with BPython
+-  ``$ fx -b[n|s|a|p|l]`` - with BPython and comments
 
 Examples
 ========
 
--  ``fx`` -- IPython with n(`mpmath <https://github.com/esamattis/slimux>`__) and plotting included.
--  ``fx -s`` -- IPython with n(`mpmath <https://github.com/esamattis/slimux>`__) + s(`isympy <https://linux.die.net/man/1/isympy>`__) on top.
--  ``fx -bs``-- BPython with n(`mpmath <https://github.com/esamattis/slimux>`__) + s(`isympy <https://linux.die.net/man/1/isympy>`__) on top.
--  ``fx -ap``-- IPython with n9`mpmath <https://github.com/esamattis/slimux>`__) +  a(``numpy``, ``pandas``, ``xarray``, ``scipy``, ``statsmodels``), p(``matplotlib``, ``seaborn``)
--  ``fx -bap``-- BPython with n(`mpmath <https://github.com/esamattis/slimux>`__) +  a(``numpy``, ``pandas``, ``xarray``, ``scipy``, ``statsmodels``), p(``matplotlib``, ``seaborn``)
--  ``fx -sap`` -- IPython with n(`mpmath <https://github.com/esamattis/slimux>`__) + s(`isympy <https://linux.die.net/man/1/isympy>`__) + a(``numpy``, ``pandas``, ``xarray``, ``scipy``, ``statsmodels``), p(``matplotlib``, ``seaborn``)
--  ``fx -salp`` -- IPython with n(`mpmath <https://github.com/esamattis/slimux>`__) + s(`isympy <https://linux.die.net/man/1/isympy>`__) + a(``numpy``, ``pandas``, ``xarray``, ``scipy``, ``statsmodels``), l(``sklearn.* as sklearn``, ``xgboost as xgb``), p(``matplotlib``, ``seaborn``)
+Try various imports:
 
+-  ``$ fx -b`` -- n(`mpmath <https://github.com/esamattis/slimux>`__) and plotting included.
+-  ``$ fx -bs`` -- n(`mpmath <https://github.com/esamattis/slimux>`__) + s(`isympy <https://linux.die.net/man/1/isympy>`__) on top.
+-  ``$ fx -bap``-- n(`mpmath <https://github.com/esamattis/slimux>`__) +  a(``numpy``, ``pandas``, ``xarray``, ``scipy``, ``statsmodels``), p(``matplotlib``, ``seaborn``)
+-  ``$ fx -bsap`` -- n(`mpmath <https://github.com/esamattis/slimux>`__) + s(`isympy <https://linux.die.net/man/1/isympy>`__) + a(``numpy``, ``pandas``, ``xarray``, ``scipy``, ``statsmodels``), p(``matplotlib``, ``seaborn``)
+-  ``$ fx -bsalp`` -- n(`mpmath <https://github.com/esamattis/slimux>`__) + s(`isympy <https://linux.die.net/man/1/isympy>`__) + a(``numpy``, ``pandas``, ``xarray``, ``scipy``, ``statsmodels``), l(``sklearn.* as sklearn``, ``xgboost as xgb``), p(``matplotlib``, ``seaborn``)
 
-If you are using ``vim`` with ``tmux`` with `slimux <https://github.com/esamattis/slimux>`__, suggest adding ``~/.zshrc``:
+Just remove the ``b`` in the command to have them imported silently into `IPython`.
+
+Suggestions
+-----------
+
+If you use some initialization commonly, we suggest adding ``~/.zshrc``, something like, for example:
+
+::
+
+   fxy() {
+       fx -ap
+   }
+
+If you are using ``vim`` with ``tmux`` with `slimux <https://github.com/esamattis/slimux>`__, you may find it useful to something else to ``~/.zshrc``:
 
 ::
 
@@ -59,25 +81,6 @@ If you are using ``vim`` with ``tmux`` with `slimux <https://github.com/esamatti
    }
 
 This way, running something like ``fxy project-name`` makes a project folder and starts Python environment with packages ``fx -bap`` (BPython + Acturial + Plotting).
-
-Or simply use ``fxy`` as shortcut for some custom initialization that you often use, like:
-
-::
-
-   fxy() {
-       fx -bnsalp
-   }
-
-This way, you created a command ``fxy`` that imports:
-
-::
-
-    >>> from fxy.n import * # Numeric: from mpmath import *
-    >>> from fxy.s import * # Symbolic: import sympy; exec(sympy.interactive.session.preexec_source)
-    >>> from fxy.a import * # Actuarial: numpy, np, pandas, pd, xarray, xr, scipy, sp, scipy.stats, st, statsmodels, sm, statsmodels.formula.api, smf
-    >>> from fxy.l import * # Learning: sklearn, xgboost, xgb
-    >>> from fxy.p import * # Plotting: matplotlib.pyplot, plt, matplotlib, seaborn, sns
-    >>>
 
 
 About
