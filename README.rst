@@ -15,7 +15,7 @@ If you are in existing environment of some kind, just do, to import:
 -  ``from fxy.n import *``, if you need ``mpmath`` and plotting.
 -  ``from fxy.s import *``, if you need |isympy|_ imports.
 -  ``from fxy.a import *``, if you need ``numpy``, ``pandas``, ``xarray``,
-   ``scipy``, ``statsmodels`` and ``matplotlib``, ``seaborn``.
+   ``scipy``, ``statsmodels``.
 -  ``from fxy.p import *``, if you need ``matplotlib`` and ``seaborn``.
 -  ``from fxy.l import *``, if you need ``sklearn.* as sklearn`` and ``xgboost as xgb``.
 
