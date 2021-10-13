@@ -10,6 +10,9 @@ Mnemonic imports and command ``fx`` with parameters to import libraries often us
 -  ``l`` (MACHINE **L**\ EARNING)
 -  ``p`` (**P**\ LOTING).
 
+.. image:: https://wiki.mindey.com/shared/screens/video-cover.png
+   :target: https://wiki.mindey.com/shared/shots/b7aa5c4fa1aa174667b06de44-fxy.mp4
+
 
 Introduction
 ------------
