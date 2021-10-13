@@ -36,7 +36,7 @@ def main():
     parser = argparse.ArgumentParser()
 
     # Mode
-    parser.add_argument('-i', '--ipython', action='store_false', default=True, help='IPython.')
+    parser.add_argument('-i', '--ipython', action='store_false', default=True, help='Disables IPython (plain Python).')
     parser.add_argument('-b', '--bpython', action='store_false', default=True, help='BPython.')
 
     # Module
