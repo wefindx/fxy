@@ -8,6 +8,7 @@ setup(
     version='0.3.7',
     description='Convenience imports and scientific functions.',
     long_description=long_description,
+    long_description_content_type='text/x-rst',
     url='https://github.com/mindey/fxy',
     author='Mindey',
     author_email='mindey@qq.com',
