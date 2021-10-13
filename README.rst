@@ -25,15 +25,24 @@ If you are in existing environment of some kind, just do, to import:
 
 Usage
 -----
-If you are in command line, and just want Python with something, run:
+The package defines the `fx` command, if you just want Python with something, run:
 
--  ``$ fx -[n|s|a|p|l]`` - to do with Python
--  ``$ fx -i[n|s|a|p|l]`` - to do with IPython
--  ``$ fx -b[n|s|a|p|l]`` - to do with BPython
+-  ``$ fx -[n|s|a|p|l]`` - with IPython
+-  ``$ fx -b[n|s|a|p|l]`` - with BPython
 
-Command ``fxy`` or ``fx`` are equivalent, so you can override the ``fxy`` with something convenient.
+Examples
+========
 
-For example, if you are using ``vim`` with ``tmux`` with `slimux <https://github.com/esamattis/slimux>`__, suggest adding ``~/.zshrc``:
+-  ``fx`` -- IPython with n(`mpmath <https://github.com/esamattis/slimux>`__) and plotting included.
+-  ``fx -s`` -- IPython with n(`mpmath <https://github.com/esamattis/slimux>`__) + s(`isympy <https://linux.die.net/man/1/isympy>`__) on top.
+-  ``fx -bs``-- BPython with n(`mpmath <https://github.com/esamattis/slimux>`__) + s(`isympy <https://linux.die.net/man/1/isympy>`__) on top.
+-  ``fx -ap``-- IPython with n9`mpmath <https://github.com/esamattis/slimux>`__) +  a(``numpy``, ``pandas``, ``xarray``, ``scipy``, ``statsmodels``), p(``matplotlib``, ``seaborn``)
+-  ``fx -bap``-- BPython with n(`mpmath <https://github.com/esamattis/slimux>`__) +  a(``numpy``, ``pandas``, ``xarray``, ``scipy``, ``statsmodels``), p(``matplotlib``, ``seaborn``)
+-  ``fx -sap`` -- IPython with n(`mpmath <https://github.com/esamattis/slimux>`__) + s(`isympy <https://linux.die.net/man/1/isympy>`__) + a(``numpy``, ``pandas``, ``xarray``, ``scipy``, ``statsmodels``), p(``matplotlib``, ``seaborn``)
+-  ``fx -salp`` -- IPython with n(`mpmath <https://github.com/esamattis/slimux>`__) + s(`isympy <https://linux.die.net/man/1/isympy>`__) + a(``numpy``, ``pandas``, ``xarray``, ``scipy``, ``statsmodels``), l(``sklearn.* as sklearn``, ``xgboost as xgb``), p(``matplotlib``, ``seaborn``)
+
+
+If you are using ``vim`` with ``tmux`` with `slimux <https://github.com/esamattis/slimux>`__, suggest adding ``~/.zshrc``:
 
 ::
 
@@ -49,16 +58,26 @@ For example, if you are using ``vim`` with ``tmux`` with `slimux <https://github
       fi
    }
 
-This way, running something like ``fxy project-name`` makes a project folder and starts Python environment with packages ``fx -bap``.
+This way, running something like ``fxy project-name`` makes a project folder and starts Python environment with packages ``fx -bap`` (BPython + Acturial + Plotting).
 
-Or simply use `fxy` as shortcut for some custom initialization that you often use, like:
+Or simply use ``fxy`` as shortcut for some custom initialization that you often use, like:
 
 ::
 
    fxy() {
-       fx -s
+       fx -bnsalp
    }
 
+This way, you created a command ``fxy`` that imports:
+
+::
+
+    >>> from fxy.n import * # Numeric: from mpmath import *
+    >>> from fxy.s import * # Symbolic: import sympy; exec(sympy.interactive.session.preexec_source)
+    >>> from fxy.a import * # Actuarial: numpy, np, pandas, pd, xarray, xr, scipy, sp, scipy.stats, st, statsmodels, sm, statsmodels.formula.api, smf
+    >>> from fxy.l import * # Learning: sklearn, xgboost, xgb
+    >>> from fxy.p import * # Plotting: matplotlib.pyplot, plt, matplotlib, seaborn, sns
+    >>>
 
 
 About
