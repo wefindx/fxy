@@ -43,6 +43,9 @@ The package defines the `fx` command, if you just want Python with something, ru
 Examples
 ========
 
+In command line
+---------------
+
 Try various imports:
 
 -  ``$ fx -b`` -- n(`mpmath <https://github.com/esamattis/slimux>`__) and plotting included.
@@ -53,48 +56,10 @@ Try various imports:
 
 Just remove the ``b`` in the command to have them imported silently into `IPython`.
 
-Suggestions
------------
+Within notebooks and Python code
+--------------------------------
 
-If you use some initialization commonly, we suggest adding ``~/.zshrc``, something like, for example:
-
-::
-
-   fxy() {
-       fx -ap
-   }
-
-If you are using ``vim`` with ``tmux`` with `slimux <https://github.com/esamattis/slimux>`__, you may find it useful to something else to ``~/.zshrc``:
-
-::
-
-   fxy() {
-      if [ -n "$1" ]
-        then
-          mkdir -p "/home/mindey/Projects/Research/mindey/$1"
-          cd "/home/mindey/Projects/Research/mindey/$1"
-          touch main.py
-          tmux new -s "$1-research" 'zsh' \; send-keys "vim main.py" Enter \; splitw -hd "python3 -mvenv .env && . .env/bin/activate; fx -bap"
-        else
-          echo "No project name selected."
-      fi
-   }
-
-This way, running something like ``fxy project-name`` makes a project folder and starts Python environment with packages ``fx -bap`` (BPython + Acturial + Plotting).
-
-
-About
------
-
-This package may be useful for computing basic things, doing things to
-emulate Python's capabilities in computational and symbolic mathematics
-and statistics, so this package will introduce just convenient imports
-so that one doesn't have to `configure Jupyter notebook
-profile <https://mindey.com/blog/how_to_set_up_ipython_for_statistics_on_linux>`__,
-to have those imports every time, and works well as an on-the-go
-calculator.
-
-This package does not assume versions of the imported packages, it just
+NB: This package does not assume versions of the imported packages, it just
 performs the basic imports, assuming that those namespaces within those
 packages will exist for a long time to come, so it is
 *dependencies-agnostic*.
@@ -138,6 +103,49 @@ packages will exist for a long time to come, so it is
     >>> plt.ylabel('some numbers')
     >>> plt.show()
     <image>
+
+
+Suggestions
+-----------
+
+If you use some initialization commonly, we suggest adding ``~/.zshrc``, something like, for example:
+
+::
+
+   fxy() {
+       fx -ap
+   }
+
+If you are using ``vim`` with ``tmux`` with `slimux <https://github.com/esamattis/slimux>`__, you may find it useful to something else to ``~/.zshrc``:
+
+::
+
+   fxy() {
+      if [ -n "$1" ]
+        then
+          mkdir -p "/home/mindey/Projects/Research/mindey/$1"
+          cd "/home/mindey/Projects/Research/mindey/$1"
+          touch main.py
+          tmux new -s "$1-research" 'zsh' \; send-keys "vim main.py" Enter \; splitw -hd "python3 -mvenv .env && . .env/bin/activate; fx -bap"
+        else
+          echo "No project name selected."
+      fi
+   }
+
+This way, running something like ``fxy project-name`` makes a project folder and starts Python environment with packages ``fx -bap`` (BPython + Acturial + Plotting).
+
+
+Conclusion
+----------
+
+This package may be useful for computing basic things, doing things to
+emulate Python's capabilities in computational and symbolic mathematics
+and statistics, so this package will introduce just convenient imports
+so that one doesn't have to `configure Jupyter notebook
+profile <https://mindey.com/blog/how_to_set_up_ipython_for_statistics_on_linux>`__,
+to have those imports every time, and works well as an on-the-go
+calculator.
+
 
 I often collect convenient computations and functions in various fields,
 like what `WolframAlpha <https://www.wolframalpha.com>`__
