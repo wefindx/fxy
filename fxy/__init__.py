@@ -26,10 +26,16 @@ def interact(modules=['n'], mode=''):
     else:
         # IPython
         commands = '; '.join([command.format(module) for module in modules])
-        try:
-            os.system(f'{mode}python3 -i -c "{commands}"')
-        except:
-            os.system(f'{mode}python -i -c "{commands}"')
+        if mode == 'i':
+            try:
+                os.system(f'python3 -m IPython -i -c "{commands}"')
+            except:
+                os.system(f'python -m IPython -i -c "{commands}"')
+        else:
+            try:
+                os.system(f'python3 -i -c "{commands}"')
+            except:
+                os.system(f'python -i -c "{commands}"')
 
 
 def main():
