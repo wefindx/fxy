@@ -15,19 +15,21 @@ def interact(modules=['n'], mode=''):
 
     # BPython
     if mode == 'b':
-
         commands = '\n'.join([
             command.format(module) + ' # ' + str(annotation(module))
             for module in modules]) + '\n'
 
         with tempfile.NamedTemporaryFile(mode='wt', delete=False) as f:
             f.write(commands)
-        os.system(f'{mode}python -i -q -p {f.name}')
+        os.system(f'bpython -i -q -p {f.name}')
         os.system(f'rm {f.name}')
     else:
-        # Python & IPython
+        # IPython
         commands = '; '.join([command.format(module) for module in modules])
-        os.system(f'{mode}python3 -i -c "{commands}"')
+        try:
+            os.system(f'{mode}python3 -i -c "{commands}"')
+        except:
+            os.system(f'{mode}python -i -c "{commands}"')
 
 
 def main():
