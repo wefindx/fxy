@@ -5,4 +5,9 @@ try:
 except:
     pass
 
+try:
+    from sympy.plotting import plot3d
+except:
+    pass
+
 # Plotting is included
