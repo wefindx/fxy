@@ -26,16 +26,25 @@ def interact(modules=['n'], mode=''):
     else:
         # IPython
         commands = '; '.join([command.format(module) for module in modules])
+
+        def is_tool(name):
+            from shutil import which
+            return which(name) is not None
+
+        python = 'python3'
+        if not is_tool(python):
+            python = 'python'
+
         if mode == 'i':
             try:
-                os.system(f'python3 -m IPython -i -c "{commands}"')
-            except:
-                os.system(f'python -m IPython -i -c "{commands}"')
+                os.system(f'{python} -m IPython -i -c "{commands}"')
+            except Exception as e:
+                print(e)
         else:
             try:
-                os.system(f'python3 -i -c "{commands}"')
-            except:
-                os.system(f'python -i -c "{commands}"')
+                os.system(f'{python} -i -c "{commands}"')
+            except Exception as e:
+                print(e)
 
 
 def main():
