@@ -33,8 +33,15 @@ Installation
 
 -  ``pip3 install fxy`` to get the import shortcuts.
 -  ``pip3 install fxy[main]`` to install all libraries except ``xgboost``,
--  ``pip3 install fxy[all]`` (slow) to install all libraries for which the shortcuts exist.
+-  ``pip3 install fxy[all]`` (slower) to install all libraries for which the shortcuts exist.
 
+Note: if sympy returns an error, like:
+
+``ValueError: The TextBackend supports only expressions over a 1D range``
+
+Then you don't have ``matplotlib``, and install it to display more advanced graphs.
+
+-  ``pip3 install --upgrade pip wheel setuptools`` make sure you have latest to easily install ``matplotlib``.
 
 Usage
 -----
