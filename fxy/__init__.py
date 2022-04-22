@@ -15,36 +15,29 @@ def interact(modules=['n'], mode=''):
 
     # BPython
     if mode == 'b':
-        commands = '\n'.join([
-            command.format(module) + ' # ' + str(annotation(module))
-            for module in modules]) + '\n'
+        mode = 'i'
 
-        with tempfile.NamedTemporaryFile(mode='wt', delete=False) as f:
-            f.write(commands)
-        os.system(f'bpython -i -q -p {f.name}')
-        os.system(f'rm {f.name}')
+    # IPython
+    commands = '; '.join([command.format(module) for module in modules])
+
+    def is_tool(name):
+        from shutil import which
+        return which(name) is not None
+
+    python = 'python3'
+    if not is_tool(python):
+        python = 'python'
+
+    if mode == 'i':
+        try:
+            os.system(f'{python} -m IPython -i -c "{commands}"')
+        except Exception as e:
+            print(e)
     else:
-        # IPython
-        commands = '; '.join([command.format(module) for module in modules])
-
-        def is_tool(name):
-            from shutil import which
-            return which(name) is not None
-
-        python = 'python3'
-        if not is_tool(python):
-            python = 'python'
-
-        if mode == 'i':
-            try:
-                os.system(f'{python} -m IPython -i -c "{commands}"')
-            except Exception as e:
-                print(e)
-        else:
-            try:
-                os.system(f'{python} -i -c "{commands}"')
-            except Exception as e:
-                print(e)
+        try:
+            os.system(f'{python} -i -c "{commands}"')
+        except Exception as e:
+            print(e)
 
 
 def main():

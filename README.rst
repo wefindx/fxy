@@ -49,7 +49,6 @@ The package defines the `fx` command, if you just want Python with something, ru
 
 -  ``$ fx -i[n|s|a|p|l]`` - plain Python (i: "IPython off")
 -  ``$ fx -[n|s|a|p|l]`` - with IPython
--  ``$ fx -b[n|s|a|p|l]`` - with BPython and comments
 
 Examples
 ========
@@ -59,13 +58,14 @@ In command line
 
 Try various imports:
 
--  ``$ fx -b`` -- n(`mpmath <https://github.com/esamattis/slimux>`__) and plotting included.
--  ``$ fx -bs`` -- n(`mpmath <https://github.com/esamattis/slimux>`__) + s(`isympy <https://linux.die.net/man/1/isympy>`__) on top.
--  ``$ fx -bap``-- n(`mpmath <https://github.com/esamattis/slimux>`__) +  a(``numpy``, ``pandas``, ``xarray``, ``scipy``, ``statsmodels``), p(``matplotlib``, ``seaborn``)
--  ``$ fx -bsap`` -- n(`mpmath <https://github.com/esamattis/slimux>`__) + s(`isympy <https://linux.die.net/man/1/isympy>`__) + a(``numpy``, ``pandas``, ``xarray``, ``scipy``, ``statsmodels``), p(``matplotlib``, ``seaborn``)
--  ``$ fx -bsalp`` -- n(`mpmath <https://github.com/esamattis/slimux>`__) + s(`isympy <https://linux.die.net/man/1/isympy>`__) + a(``numpy``, ``pandas``, ``xarray``, ``scipy``, ``statsmodels``), l(``sklearn.* as sklearn``, ``xgboost as xgb``), p(``matplotlib``, ``seaborn``)
+-  ``$ fx`` -- n(`mpmath <https://github.com/esamattis/slimux>`__) and plotting included, under IPython.
+-  ``$ fx -i`` -- n(`mpmath <https://github.com/esamattis/slimux>`__) and plotting included, under plain Python.
+-  ``$ fx -s`` -- n(`mpmath <https://github.com/esamattis/slimux>`__) + s(`isympy <https://linux.die.net/man/1/isympy>`__) on top.
+-  ``$ fx -ap``-- n(`mpmath <https://github.com/esamattis/slimux>`__) +  a(``numpy``, ``pandas``, ``xarray``, ``scipy``, ``statsmodels``), p(``matplotlib``, ``seaborn``)
+-  ``$ fx -sap`` -- n(`mpmath <https://github.com/esamattis/slimux>`__) + s(`isympy <https://linux.die.net/man/1/isympy>`__) + a(``numpy``, ``pandas``, ``xarray``, ``scipy``, ``statsmodels``), p(``matplotlib``, ``seaborn``)
+-  ``$ fx -salp`` -- n(`mpmath <https://github.com/esamattis/slimux>`__) + s(`isympy <https://linux.die.net/man/1/isympy>`__) + a(``numpy``, ``pandas``, ``xarray``, ``scipy``, ``statsmodels``), l(``sklearn.* as sklearn``, ``xgboost as xgb``), p(``matplotlib``, ``seaborn``)
 
-Just remove the ``b`` in the command to have them imported silently into `IPython`.
+Just include the ``i``, e.g. ``fx -islap``  in the command to have imports under plain `Python`.
 
 Within notebooks and Python code
 --------------------------------
@@ -137,13 +137,13 @@ If you are using ``vim`` with ``tmux`` with `slimux <https://github.com/esamatti
           mkdir -p "/home/mindey/Projects/Research/mindey/$1"
           cd "/home/mindey/Projects/Research/mindey/$1"
           touch main.py
-          tmux new -s "$1-research" 'zsh' \; send-keys "vim main.py" Enter \; splitw -hd "python3 -mvenv .env && . .env/bin/activate; fx -bap"
+          tmux new -s "$1-research" 'zsh' \; send-keys "vim main.py" Enter \; splitw -hd "python3 -mvenv .env && . .env/bin/activate; fx -ap"
         else
           echo "No project name selected."
       fi
    }
 
-This way, running something like ``fxy project-name`` makes a project folder and starts Python environment with packages ``fx -bap`` (BPython + Acturial + Plotting).
+This way, running something like ``fxy <name>`` makes a project folder and starts Python environment with packages ``fx -ap`` (IPython + Acturial + Plotting).
 
 
 Conclusion
