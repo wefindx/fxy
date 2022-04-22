@@ -2,6 +2,7 @@
 
 try:
     import sympy; exec(sympy.interactive.session.preexec_source)
+    a, b, c = symbols('a b c')
 except:
     pass
 
