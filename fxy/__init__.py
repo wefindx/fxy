@@ -30,7 +30,7 @@ def interact(modules=['n'], mode=''):
 
     if mode == 'i':
         try:
-            os.system(f'{python} -m IPython -i -c "{commands}"')
+            os.system(f'{python} -m IPython --no-banner -i -c "{commands}"')
         except Exception as e:
             print(e)
     else:
@@ -47,11 +47,11 @@ def main():
 
     # Mode
     parser.add_argument('-i', '--ipython', action='store_false', default=True, help='Disables IPython (plain Python).')
-    parser.add_argument('-b', '--bpython', action='store_false', default=True, help='BPython.')
+    parser.add_argument('-b', '--bpython', action='store_false', default=True, help='BPython. (deprecated)')
 
     # Module
-    parser.add_argument('-n', '--numeric', action='store_false', default=True, help='Numeric.')
-    parser.add_argument('-s', '--symbolic', action='store_false', default=True, help='Symbolic.')
+    parser.add_argument('-n', '--numeric', action='store_false', default=True, help='Numeric: from mpmath import *')
+    parser.add_argument('-s', '--symbolic', action='store_false', default=True, help="Symbolic: from sympy import *, symbols('a b c x y z t'), symbols('k m n', integer=True), symbols('f g h', cls=Function), init_printing()")
     parser.add_argument('-a', '--actuarial', action='store_false', default=True, help='Actuarial.')
     parser.add_argument('-l', '--learning', action='store_false', default=True, help='Learning.')
     parser.add_argument('-p', '--plotting', action='store_false', default=True, help='Plotting.')

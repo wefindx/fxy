@@ -5,20 +5,21 @@ with open('README.rst', 'r') as f:
 
 setup(
     name='fxy',
-    version='0.5.0',
+    version='0.5.4',
     description='Convenience imports and scientific functions.',
     long_description=long_description,
     long_description_content_type='text/x-rst',
     url='https://github.com/mindey/fxy',
     author='Mindey',
-    author_email='mindey@qq.com',
+    author_email='mindey@mindey.com',
     license='UNLICENSE',
     packages = find_packages(exclude=['docs', 'tests*']),
-    install_requires=['mpmath', 'ipython', 'sympy', 'windows-curses >= 2.2.0 ; platform_system=="Windows"'],
+    install_requires=['mpmath', 'ipython', 'sympy', 'xarray', 'windows-curses >= 2.2.0 ; platform_system=="Windows"'] + ["tqdm", "baserow-client"],
     extras_require = {
         'test': ['coverage', 'pytest', 'pytest-cov'],
         'main': ["bpython", "ipython", "sympy", "xarray", "scipy", "statsmodels", "sklearn", "matplotlib", "seaborn"],
-        'all': ["bpython", "ipython"] + ["sympy", "xarray", "scipy", "statsmodels", "sklearn", "matplotlib", "seaborn"] + ["xgboost"]
+        # 'io': ["tqdm", "baserow-client"],
+        'all': ["bpython", "ipython"] + ["sympy", "xarray", "scipy", "statsmodels", "sklearn", "matplotlib", "seaborn"] + ["xgboost"] + ["tqdm", "baserow-client"]
     },
     zip_safe=False,
     entry_points = {

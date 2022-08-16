@@ -1,4 +1,4 @@
-from fxy.gravitation.gravity_force import F_gravity
+from fxy.formula.gravitation.gravity_force import F_gravity
 
 from sympy import Eq, solve, Symbol
 

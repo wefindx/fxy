@@ -1,4 +1,4 @@
-from fxy.thermodynamics.benford import n_probability
+from fxy.formula.thermodynamics.benford import n_probability
 
 
 def test_n_probability():
