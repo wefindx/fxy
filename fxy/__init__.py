@@ -1,24 +1,11 @@
 import os
+import json
 import tempfile
 
 
-def interact(modules=['n'], mode=''):
-    command = 'from fxy.{} import *'
+def interact(modules=[], mode=''):
 
-    annotation = lambda x: {
-        'n': 'from mpmath import *',
-        's': 'from __future__ import division; from sympy import *; x, y, z = symbols("xyz"); k, m, n = symbols("kmn", integer=True)',
-        'a': 'numpy & np, pandas & pd, xarray & xr, scipy & sp, scipy.stats & st, statsmodels & sm, statsmodels.formula.api & smf',
-        'l': 'from . import __sklearn__ as sklearn; xgboost & xgb',
-        'p': 'matplotlib.pyplot & plt; matplotlib; seaborn & sns'
-    }.get(x) or ''
-
-    # BPython
-    if mode == 'b':
-        mode = 'i'
-
-    # IPython
-    commands = '; '.join([command.format(module) for module in modules])
+    commands = '; '.join([f'from fxy.{module} import *' for module in modules])
 
     def is_tool(name):
         from shutil import which
@@ -28,7 +15,7 @@ def interact(modules=['n'], mode=''):
     if not is_tool(python):
         python = 'python'
 
-    if mode == 'i':
+    if mode:
         try:
             os.system(f'{python} -m IPython --no-banner -i -c "{commands}"')
         except Exception as e:
@@ -47,50 +34,37 @@ def main():
 
     # Mode
     parser.add_argument('-i', '--ipython', action='store_false', default=True, help='Disables IPython (plain Python).')
-    parser.add_argument('-b', '--bpython', action='store_false', default=True, help='BPython. (deprecated)')
 
     # Module
-    parser.add_argument('-n', '--numeric', action='store_false', default=True, help='Numeric: from mpmath import *')
-    parser.add_argument('-s', '--symbolic', action='store_false', default=True, help="Symbolic: from sympy import *, symbols('a b c x y z t'), symbols('k m n', integer=True), symbols('f g h', cls=Function), init_printing()")
-    parser.add_argument('-a', '--actuarial', action='store_false', default=True, help='Actuarial.')
-    parser.add_argument('-l', '--learning', action='store_false', default=True, help='Learning.')
-    parser.add_argument('-p', '--plotting', action='store_false', default=True, help='Plotting.')
+    parser.add_argument('-c', '--calc', action='store_false', default=True, help='(MpMath)')
+    parser.add_argument('-m', '--math', action='store_false', default=True, help='(SymPy)')
+    parser.add_argument('-f', '--physics', action='store_false', default=True, help="(MpMath, NumPy, SciPy)")
+    parser.add_argument('-s', '--statistics', action='store_false', default=True, help='(NumPy, Pandas, Scikit-Learn, StatsModels)')
+    parser.add_argument('-p', '--plotting', action='store_false', default=True, help='(MatplotLib, Seaborn)')
 
     args = parser.parse_args()
 
-    i = not args.ipython # to disable IPython shell
-    b = not args.bpython
+    # Choice of environment and plotting
+    mode = not(args.ipython)
+    plot = not(args.plotting)
+    os.environ['_FXY_MODE_'] = mode and 'true' or ''
+    os.environ['_FXY_PLOT_'] = plot and 'true' or ''
 
-    n = not args.numeric
-    s = not args.symbolic
-    a = not args.actuarial
-    l = not args.learning
-    p = not args.plotting
-
-
-    if b:
-        # BPython shell, cause more common.
-        mode = 'b'
-    elif i:
-        # Plain Python shell (i.e., disable IPython shell).
-        mode = ''
+    # Choice of library imports
+    if not(args.calc):
+        module = 'calc'
+    elif not(args.math):
+        module = 'math'
+    elif not(args.physics):
+        module = 'physics'
+    elif not(args.statistics):
+        module = 'stats'
     else:
-        # Default is IPython shell, cause more common.
-        mode = 'i'
+        # Default is MPMath for "calculator"
+        module = 'calc'
 
-    # Default is MPMath for "calculator"
-    modules = ['n']
+    interact([module], mode)
 
-    if s:
-        modules.append('s')
-    if a:
-        modules.append('a')
-    if l:
-        modules.append('l')
-    if p:
-        modules.append('p')
-
-    interact(modules, mode)
 
 if __name__ == '__main__':
     main()
