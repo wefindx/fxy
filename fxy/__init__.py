@@ -34,13 +34,12 @@ def main():
 
     # Mode
     parser.add_argument('-i', '--ipython', action='store_false', default=True, help='Disables IPython (plain Python).')
+    parser.add_argument('-p', '--plotting', action='store_false', default=True, help='(MatplotLib, Seaborn)')
 
     # Module
-    parser.add_argument('-c', '--calc', action='store_false', default=True, help='(MpMath)')
-    parser.add_argument('-m', '--math', action='store_false', default=True, help='(SymPy)')
-    parser.add_argument('-f', '--physics', action='store_false', default=True, help="(MpMath, NumPy, SciPy)")
-    parser.add_argument('-s', '--statistics', action='store_false', default=True, help='(NumPy, Pandas, Scikit-Learn, StatsModels)')
-    parser.add_argument('-p', '--plotting', action='store_false', default=True, help='(MatplotLib, Seaborn)')
+    parser.add_argument('-f', '--calc', action='store_false', default=True, help='(MpMath)')
+    parser.add_argument('-x', '--cas', action='store_false', default=True, help='CAS imports')
+    parser.add_argument('-y', '--lab', action='store_false', default=True, help='LAB imports')
 
     args = parser.parse_args()
 
@@ -49,19 +48,16 @@ def main():
     plot = not(args.plotting)
     os.environ['_FXY_MODE_'] = mode and 'true' or ''
     os.environ['_FXY_PLOT_'] = plot and 'true' or ''
+    # Default is MPMath for "calculator"
+    module = 'calc'
 
     # Choice of library imports
     if not(args.calc):
         module = 'calc'
-    elif not(args.math):
-        module = 'math'
-    elif not(args.physics):
-        module = 'physics'
-    elif not(args.statistics):
-        module = 'stats'
-    else:
-        # Default is MPMath for "calculator"
-        module = 'calc'
+    if not(args.cas):
+        module = 'CAS'
+    if not(args.lab):
+        module = 'LAB'
 
     interact([module], mode)
 

@@ -1,3 +1,5 @@
+
+
 # iSympy+
 import os
 
@@ -5,7 +7,7 @@ _fxy_mode_ = os.environ.get('_FXY_MODE_')
 _fxy_plot_ = os.environ.get('_FXY_PLOT_')
 
 if _fxy_mode_:
-    print('# MATH (SymPy)')
+    print('# CAS (SymPy, MpMath)')
 
 try:
     import sympy
@@ -19,6 +21,13 @@ try:
     exec(commands)
     if _fxy_mode_:
         print(commands)
+except:
+    pass
+
+try:
+    import mpmath as mp
+    if _fxy_mode_:
+        print('import mpmath as mp')
 except:
     pass
 

@@ -1,0 +1,8 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+
+
+## [0.5.6] - 2024-02-28
+- [change] Refactor philosophy of the package. Responsible only for two things: emulating CAS and LAB environments, leave out calc, plot.
+

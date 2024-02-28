@@ -4,10 +4,9 @@ fxy
 
 Mnemonic imports and command ``fx`` with parameters to import libraries often used in research.
 
--  ``c`` (**C**\ ALC)
--  ``m`` (**M**\ ATH)
--  ``f`` (**F**\ (PH)YSICS)
--  ``s`` (**S**\ TATISTICS)
+-  ``f`` (For CALC - Basic calculator)
+-  ``x`` (For CAS software ("Numeric") emulation)
+-  ``y`` (For LAB software ("Symbolic") emulation )
 
 
 Introduction
@@ -27,7 +26,7 @@ Usage
 -----
 The package defines the `fx` command, if you just want Python with something, run:
 
--  ``$ fx -[c|m|f|s]`` - plain Python (i: "IPython off")
+-  ``$ fx -i[f|x|y]p`` - plain Python (i: "IPython on", p: "Plotting on")
 
 Examples
 ========
@@ -35,22 +34,20 @@ Examples
 In command line
 ---------------
 
--  ``$ fx -c`` -- imports useful for numeric math functions (mpmath)
--  ``$ fx -m`` -- imports useful for symbolic math functions (isympy)
--  ``$ fx -f`` -- imports usful for physics (scipy+)
--  ``$ fx -s`` -- imports usful for statistics (scikit-learn+)
--  ``$ fx -p`` -- imports usful for plotting (matplotlib+seaborn)
+-  ``$ fx`` -- calculator (equivalent to ``$fx -f``
+-  ``$ fx -x``-- imports useful CAS functions (isympy+mpmath)
+-  ``$ fx -y``-- imports useful LAB functions (Stats, ML, Physics)
 
 Additions:
 
--  ``$ fx`` -- calculator (equivalent to ``$fx -c``
 -  ``$ fx -i`` -- calculator + IPython + explicit imports.
 -  ``$ fx -ip`` -- calculator + plotting, with IPython.
 
 E.g.,:
 
-- ``$ fx -imp`` - math with IPython, and plotting imports
-- ``$ fx -isp`` - stats with IPython, and plotting imports
+- ``$ fx -ip`` - calc with IPython, and plotting imports
+- ``$ fx -ipx`` - CAS with IPython, and plotting imports
+- ``$ fx -ipy`` - LAB with IPython, and plotting imports
 
 
 Within notebooks and Python code
@@ -61,29 +58,44 @@ performs the basic imports, assuming that those namespaces within those
 packages will exist for a long time to come, so it is
 *dependencies-agnostic*.
 
+CALC
+----
+
 ::
 
-    # Numeric (mpmath.*)
-    >>> from fxy.calc import * (394 functions)
+    >>> from fxy.calc import *
     >>> pi
     <pi: 3.14159~>
 
-    # Symbolic (sympy.*)
-    >>> from fxy.math import * (915 functions, and "isympy" imports)
+    >>> from fxy.plot import *
+    >>> plt.plot([1, 2, 3, 4])
+    >>> plt.ylabel('some numbers')
+    >>> plt.show()
+
+CAS
+---
+
+::
+
+    >>> from fxy.CAS import *
     >>> f = x**4 - 4*x**3 + 4*x**2 - 2*x + 3
     >>> f.subs([(x, 2), (y, 4), (z, 0)])
     -1
     >>> plot(f)
+    >>> plot3d(x**2-y**2)
 
-    # Actuarial (np: numpy, pd: pandas, sm: statsmodels.api, sp: scipy, st: scipy.stats, smf: statsmodels.formula.api, statsmodels)
-    >>> from fxy.stats import *
+LAB
+---
+
+::
+
+    >>> from fxy.LAB import *
     >>> df = pandas.DataFrame({'x': numpy.arange(10), 'y': np.random.random(10)})
     >>> df.sum()
     x    45.000000
     y     4.196558
     dtype: float64
 
-    # Learning (sklearn.* as sklearn)
     >>> X = [[0], [1], [2], [3]]
     >>> y = [0, 0, 1, 1]
     >>> neigh = sklearn.neighbors.KNeighborsClassifier(n_neighbors=3)
@@ -93,13 +105,6 @@ packages will exist for a long time to come, so it is
     >>> print(neigh.predict_proba([[0.9]]))
     [[0.66666667 0.33333333]]
 
-    # Plotting (plt, matplotlib)
-    >>> from fxy.plot import *
-    >>> plt.plot([1, 2, 3, 4])
-    >>> plt.ylabel('some numbers')
-    >>> plt.show()
-    <image>
-
 
 Suggestions
 -----------
@@ -108,7 +113,7 @@ If you use some initialization commonly, we suggest adding ``~/.zshrc``, somethi
 
 ::
 
-   alias f=". ~/.venv/bin/activate && fx -ic"
+   alias f=". ~/.venv/bin/activate && fx -if"
 
 Or, pass params:
 

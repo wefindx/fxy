@@ -4,7 +4,22 @@ _fxy_mode_ = os.environ.get('_FXY_MODE_')
 _fxy_plot_ = os.environ.get('_FXY_PLOT_')
 
 if _fxy_mode_:
-    print('# STATISTICS (NumPy, Pandas, Scikit-Learn, StatsModels)')
+    print('# LAB (MpMath, NumPy, Pandas, Xarray, SciPy, Scikit-Learn, StatsModels)')
+
+try:
+    from mpmath import *
+    if _fxy_mode_:
+        print('from mpmath import *')
+except:
+    pass
+
+try:
+    import sympy
+    import sympy as sp
+    if _fxy_mode_:
+        print('import sympy; as sp')
+except:
+    pass
 
 try:
     import numpy
@@ -19,6 +34,23 @@ try:
     import pandas as pd
     if _fxy_mode_:
         print('import pandas; as pd')
+except:
+    pass
+
+try:
+    import xarray
+    import xarray as xr
+    if _fxy_mode_:
+        print('import xarray; as xr')
+except:
+    pass
+
+try:
+    from . import _scipy as sci
+    import scipy.stats as st
+    if _fxy_mode_:
+        print('import scipy; as sci')
+        print('import scipy.stats as st')
 except:
     pass
 

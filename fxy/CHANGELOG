@@ -1,0 +1,6 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+
+## [0.5.6] - 2024-02-28
+- [change] Logic. Since the idea of the package relies on two broad categories of software (CAS and LAB), stick to emulating just them.
