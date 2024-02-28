@@ -2,12 +2,12 @@ fxy
 ===
 .. |isympy| replace:: ``isympy``
 
-Mnemonic imports and command ``fx`` with parameters to import libraries often used in research.
+Imports and command ``fx`` with parameters to import libraries often used in research to emulate CAS software, or LAB software.
 
--  ``f`` (For CALC - Basic calculator)
--  ``x`` (For CAS software ("Numeric") emulation)
--  ``y`` (For LAB software ("Symbolic") emulation )
+Installation
+------------
 
+-  ``pip install fxy`` to get the import shortcuts.
 
 Introduction
 ------------
@@ -16,47 +16,20 @@ The people coming from use of CAS tools like ``Maple``, ``Mathematica`` or compu
 
 This package ``fxy`` is a shorthand to do the imports packages to approximate these two domains (CAS, and LAB) you've got a command ``fx``, that starts Python with needed packages pre-imported: so, you can start using Python like a calculator right away.
 
-
-Installation
-------------
-
--  ``pip install fxy`` to get the import shortcuts.
-
 Usage
 -----
 The package defines the `fx` command, if you just want Python with something, run:
 
--  ``$ fx -i[f|x|y]p`` - plain Python (i: "IPython on", p: "Plotting on")
 
-Examples
-========
+-  ``fx`` (e.g., ``fx -ip``) for quick CALC - Basic calculator
+-  ``fx -x`` (e.g., ``fx -ipx``) for basic CAS software ("Numeric") emulation
+-  ``fx -y`` (e.g., ``fx -ipy``) for LAB software ("Symbolic") emulation
 
 In command line
 ---------------
 
--  ``$ fx`` -- calculator (equivalent to ``$fx -f``
--  ``$ fx -x``-- imports useful CAS functions (isympy+mpmath)
--  ``$ fx -y``-- imports useful LAB functions (Stats, ML, Physics)
-
-Additions:
-
--  ``$ fx -i`` -- calculator + IPython + explicit imports.
--  ``$ fx -ip`` -- calculator + plotting, with IPython.
-
-E.g.,:
-
-- ``$ fx -ip`` - calc with IPython, and plotting imports
-- ``$ fx -ipx`` - CAS with IPython, and plotting imports
-- ``$ fx -ipy`` - LAB with IPython, and plotting imports
-
-
-Within notebooks and Python code
---------------------------------
-
-NB: This package does not assume versions of the imported packages, it just
-performs the basic imports, assuming that those namespaces within those
-packages will exist for a long time to come, so it is
-*dependencies-agnostic*.
+-  ``$ fx -i`` -- to use IPython + explicit imports.
+-  ``$ fx -p`` -- to import plotting.
 
 CALC
 ----
