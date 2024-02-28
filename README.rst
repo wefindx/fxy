@@ -13,7 +13,9 @@ Mnemonic imports and command ``fx`` with parameters to import libraries often us
 Introduction
 ------------
 
-The people who come from tools like Maple, Matlab, Mathematica, and R, may find that Python requires a lot of mathematical imports just to start doing basic stuff. So, I tried to simplify it -- simply ``pip install fxy``, and you've got a command ``fx``, that starts Python with ``mpmath`` stuff pre-imported: so, you can start using Python like a calculator right away. If you need more, like symbolics, or statistics, or machine learning, -- these things are import-able with extra parameter, e.g., ``fx -im`` for |isympy|_, or just by running import import shortcuts described below:
+The people coming from use of CAS tools like ``Maple``, ``Mathematica`` or computing LAB languages ``Matlab`` and ``R`` may find that ``Python`` requires quite a few imports just to do equivalent computing.
+
+This package ``fxy`` is a shorthand to do the imports packages to approximate these two domains (CAS, and LAB) you've got a command ``fx``, that starts Python with needed packages pre-imported: so, you can start using Python like a calculator right away.
 
 
 Installation
