@@ -9,9 +9,6 @@ Mnemonic imports and command ``fx`` with parameters to import libraries often us
 -  ``f`` (**F**\ (PH)YSICS)
 -  ``s`` (**S**\ TATISTICS)
 
-.. image:: https://wiki.mindey.com/shared/screens/video-cover.png
-   :target: https://wiki.mindey.com/shared/shots/b7aa5c4fa1aa174667b06de44-fxy.mp4
-
 
 Introduction
 ------------
@@ -121,7 +118,7 @@ Or, pass params:
     }
 
 
-This way, running something like ``f`` makes a project folder and starts Python environment with packages ``fx -ap`` (IPython + Acturial + Plotting).
+This way, running something like ``f`` makes a project folder and starts Python environment with import sets often used.
 
 
 .. _isympy:
