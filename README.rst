@@ -88,7 +88,7 @@ If you use some initialization commonly, we suggest adding ``~/.zshrc``, somethi
 
    alias f=". ~/.venv/bin/activate && fx -if"
 
-Or, pass params:
+Or, pass params, and alias:
 
 ::
 
@@ -96,6 +96,9 @@ Or, pass params:
         . ~/.venv/bin/activate
         fx "$@"
     }
+
+    alias fx="f -ipx"  # for CAS with plotting
+    alias fy="f -ipy"  # for LAB with plotting
 
 
 This way, running something like ``f`` makes a project folder and starts Python environment with import sets often used.
