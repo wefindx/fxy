@@ -46,6 +46,7 @@ except:
     pass
 
 try:
+    from . import _scipy as scipy
     from . import _scipy as sci
     import scipy.stats as st
     if _fxy_mode_:
