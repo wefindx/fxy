@@ -9,3 +9,6 @@ All notable changes to this project will be documented in this file.
 ## [0.5.8] - 2024-03-04
 - [add] PyQt5 dependency, for plotting.
 - [fix] scipy import
+
+## [0.5.8] - 2024-03-04
+- [fix] mpmath import in CAS

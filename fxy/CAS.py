@@ -25,9 +25,9 @@ except:
     pass
 
 try:
-    import mpmath as mp
+    from mpmath import mp
     if _fxy_mode_:
-        print('import mpmath as mp')
+        print('from mpmath import mp')
 except:
     pass
 
