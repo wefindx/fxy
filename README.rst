@@ -11,9 +11,11 @@ Installation
 
 Simple Usage
 ------------
-``$ fx --calc`` (or ``from fxy.calc import *``) start Python with CALC imports (to emulate scientific calculator)
-``$ fx --cas`` (or ``from fxy.cas import *``) start Python with CAS (Computer Algebra System) imports (to emulate Maple, Matematica,..)
-``$ fx --lab`` (or ``from fxy.lab import *``) start Python with LAB (Linear AlgeBra system) imports (to emulate MATLAB, R,...)
+``$ fx --calc`` starts Python with CALC imports (to emulate scientific calculator)  (or ``from fxy.calc import *``)
+
+``$ fx --cas`` starts Python with CAS (Computer Algebra System) imports (to emulate Maple, Matematica,..) (or ``from fxy.cas import *``)
+
+``$ fx --lab`` starts Python with LAB (Linear AlgeBra system) imports (to emulate MATLAB, R,...) (or ``from fxy.lab import *``)
 
 Introduction
 ------------
