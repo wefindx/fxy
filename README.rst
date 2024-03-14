@@ -9,6 +9,12 @@ Installation
 
 -  ``pip install fxy`` to get the import shortcuts.
 
+Simple Usage
+------------
+``$ fx --calc`` (or ``from fxy.calc import *``) start Python with CALC imports (to emulate scientific calculator)
+``$ fx --cas`` (or ``from fxy.cas import *``) start Python with CAS (Computer Algebra System) imports (to emulate Maple, Matematica,..)
+``$ fx --lab`` (or ``from fxy.lab import *``) start Python with LAB (Linear AlgeBra system) imports (to emulate MATLAB, R,...)
+
 Introduction
 ------------
 
@@ -50,7 +56,7 @@ CAS
 
 ::
 
-    >>> from fxy.CAS import *
+    >>> from fxy.cas import *
     >>> f = x**4 - 4*x**3 + 4*x**2 - 2*x + 3
     >>> f.subs([(x, 2), (y, 4), (z, 0)])
     -1
@@ -62,7 +68,7 @@ LAB
 
 ::
 
-    >>> from fxy.LAB import *
+    >>> from fxy.lab import *
     >>> df = pandas.DataFrame({'x': numpy.arange(10), 'y': np.random.random(10)})
     >>> df.sum()
     x    45.000000

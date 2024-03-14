@@ -12,3 +12,6 @@ All notable changes to this project will be documented in this file.
 
 ## [0.5.8] - 2024-03-04
 - [fix] mpmath import in CAS
+
+## [0.6.0] - 2024-03-14
+- [mod] fxy.CAS, fxy.LAB to lowercase (fxy.cas, fxy.lab)

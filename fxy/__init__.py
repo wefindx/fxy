@@ -55,9 +55,9 @@ def main():
     if not(args.calc):
         module = 'calc'
     if not(args.cas):
-        module = 'CAS'
+        module = 'cas'
     if not(args.lab):
-        module = 'LAB'
+        module = 'lab'
 
     interact([module], mode)
 
