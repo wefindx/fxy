@@ -4,40 +4,50 @@ fxy
 
 Imports and command ``fx`` with parameters to import libraries often used in research to emulate CAS software, or LAB software.
 
+Introduction
+------------
+
+1. People coming from R, love that you can start quickly and start using it as a CALCulator,
+2. People coming from use of CAS tools like ``Maple``, ``Mathematica`` have ``isympy``, that is narrowly focused,
+3. People coming from computing LAB languages ``Matlab`` and ``R`` may find that ``Python`` requires quite a few imports just to do equivalent computing in Python.
+
+This package ``fxy`` is a shorthand to do the imports packages to approximate calculator and these two domains (CALC, CAS, and LAB) you've got a command ``fx``, that starts Python with needed packages pre-imported: so, you can start using Python like a calculator right away.
+
 Installation
 ------------
 
 -  ``pip install fxy`` to get the import shortcuts.
 
-Simple Usage
-------------
-``$ fx --calc`` starts Python with CALC imports (to emulate scientific calculator)  (or ``from fxy.calc import *``)
+Use as a calculator
+-------------------
+``
+$ fx
+``
 
-``$ fx --cas`` starts Python with CAS (Computer Algebra System) imports (to emulate Maple, Matematica,..) (or ``from fxy.cas import *``)
+(pass, ``-i`` for IPython)
 
-``$ fx --lab`` starts Python with LAB (Linear AlgeBra system) imports (to emulate MATLAB, R,...) (or ``from fxy.lab import *``)
+Usage as imports
+----------------
 
-Introduction
-------------
+- ``from fxy.calc import *`` for quick CALC - basic ``mpmath`` calculator
+- ``from fxy.cas import *`` for basic CAS software ("Numeric") emulation
+- ``from fxy.lab import *`` for LAB software ("Symbolic") emulation
+- ``from fxy.plot import *`` for plotting imports.
 
-The people coming from use of CAS tools like ``Maple``, ``Mathematica`` or computing LAB languages ``Matlab`` and ``R`` may find that ``Python`` requires quite a few imports just to do equivalent computing.
-
-This package ``fxy`` is a shorthand to do the imports packages to approximate these two domains (CAS, and LAB) you've got a command ``fx``, that starts Python with needed packages pre-imported: so, you can start using Python like a calculator right away.
-
-Usage
------
+Usage as command
+----------------
 The package defines the `fx` command, if you just want Python with something, run:
 
+- ``$ fx --calc`` starts Python with CALC imports (basic ``mpmath`` calculator)
+- ``$ fx --cas`` (or ``-x``) starts Python with CAS (Computer Algebra System) imports (to emulate Maple, Matematica,..) 
+- ``$ fx --lab`` (or ``-y``) starts Python with LAB (Linear AlgeBra system) imports (to emulate MATLAB, R,...)
+- ``$ fx --plot`` (or ``-p``) for plotting imports
 
--  ``fx`` (e.g., ``fx -ip``) for quick CALC - Basic calculator
--  ``fx -x`` (e.g., ``fx -ipx``) for basic CAS software ("Numeric") emulation
--  ``fx -y`` (e.g., ``fx -ipy``) for LAB software ("Symbolic") emulation
+So, for example, if you want LAB imports with plotting and in IPython, then you'd:
 
-In command line
----------------
+- ``$ fx -ip --lab``
 
--  ``$ fx -i`` -- to use IPython + explicit imports.
--  ``$ fx -p`` -- to import plotting.
+The following are usage examples.
 
 CALC
 ----
@@ -90,26 +100,17 @@ LAB
 Suggestions
 -----------
 
-If you use some initialization commonly, we suggest adding ``~/.zshrc``, something like, for example:
+If you envy R users being able to start their 'calculator' with just one key, add something like the below to your ``~/.zshrc``:
 
 ::
 
-   alias f=". ~/.venv/bin/activate && fx -if"
-
-Or, pass params, and alias:
-
-::
-
-    function f() {
+    function F() {
         . ~/.venv/bin/activate
         fx "$@"
     }
 
-    alias fx="f -ipx"  # for CAS with plotting
-    alias fy="f -ipy"  # for LAB with plotting
 
-
-This way, running something like ``f`` makes a project folder and starts Python environment with import sets often used.
+Aliasing ``fx`` as ``F`` command.
 
 
 .. _isympy:
