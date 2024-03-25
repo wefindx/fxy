@@ -11,7 +11,7 @@ Introduction
 2. People coming from use of CAS tools like ``Maple``, ``Mathematica`` have ``isympy``, that is narrowly focused,
 3. People coming from computing LAB languages ``Matlab`` and ``R`` may find that ``Python`` requires quite a few imports just to do equivalent computing in Python.
 
-This package ``fxy`` is a shorthand to do the imports packages to approximate calculator and these two domains (CALC, CAS, and LAB) you've got a command ``fx``, that starts Python with needed packages pre-imported: so, you can start using Python like a calculator right away.
+This package ``fxy`` is a shorthand to do the imports packages to approximate these domains (CALC, CAS, and LAB) you've got a command ``fx``, that starts Python with needed packages pre-imported: so, you can start using Python like a calculator right away.
 
 Installation
 ------------
