@@ -30,8 +30,8 @@ Usage as imports
 ----------------
 
 - ``from fxy.calc import *`` for quick CALC - basic ``mpmath`` calculator
-- ``from fxy.cas import *`` for basic CAS software ("Numeric") emulation
-- ``from fxy.lab import *`` for LAB software ("Symbolic") emulation
+- ``from fxy.cas import *`` for basic CAS software ("Symbolic") emulation
+- ``from fxy.lab import *`` for LAB software ("Numeric") emulation
 - ``from fxy.plot import *`` for plotting imports.
 
 Usage as command
