@@ -7,7 +7,7 @@ Imports and command ``fx`` with parameters to import libraries often used in res
 Introduction
 ------------
 
-1. People coming from R, love that you can start quickly and start using it as a CALCulator,
+1. People coming from ``R``, love that you can start quickly and start using it as a CALCulator,
 2. People coming from use of CAS tools like ``Maple``, ``Mathematica`` have ``isympy``, that is narrowly focused,
 3. People coming from computing LAB languages ``Matlab`` and ``R`` may find that ``Python`` requires quite a few imports just to do equivalent computing in Python.
 
@@ -100,7 +100,7 @@ LAB
 Suggestions
 -----------
 
-If you envy R users being able to start their 'calculator' with just one key, add something like the below to your ``~/.zshrc``:
+If you envy ``R`` users being able to start their 'calculator' with just one key, add something like the below to your ``~/.zshrc``:
 
 ::
 
