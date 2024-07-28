@@ -106,13 +106,19 @@ If you envy ``R`` users being able to start their 'calculator' with just one key
 
 ::
 
-    function F() {
+    function f() {
         . ~/.venv/bin/activate
         fx "$@"
     }
+    function F() {
+        f -ix # (your custom pre-configuration you often use)
+    }
 
 
-Aliasing ``fx`` as ``F`` command.
+Aliasing ``fx`` as ``f`` command as simplest generic, and commonly used specific as ``F`` command makes it possible to:
+
+- Use ``f`` to start Python with just ``mpmath`` for fastest scientific calculations without ``IPython``.
+- Use ``F`` to start Python with some specific other pre-configuration that you often use (e.g., ``f -ix`` emulates ``isympy``).
 
 
 .. _isympy:
