@@ -2,7 +2,7 @@ fxy
 ===
 .. |isympy| replace:: ``isympy``
 
-Imports and command ``fx`` with parameters to import libraries often used in research to emulate CAS software, or LAB software.
+Imports and command ``fxy`` with parameters to import libraries often used in research to emulate CAS software, or LAB software.
 
 Introduction
 ------------
@@ -11,7 +11,7 @@ Introduction
 2. People coming from use of CAS tools like ``Maple``, ``Mathematica`` have ``isympy``, that is narrowly focused,
 3. People coming from computing LAB languages ``Matlab`` and ``R`` may find that ``Python`` requires quite a few imports just to do equivalent computing in Python.
 
-This package ``fxy`` is a shorthand to do the imports packages to approximate these domains (CALC, CAS, and LAB) you've got a command ``fx``, that starts Python with needed packages pre-imported: so, you can start using Python like a calculator right away.
+This package ``fxy`` is a shorthand to do the imports packages to approximate these domains (CALC, CAS, and LAB) you've got a command ``fxy``, that starts Python with needed packages pre-imported: so, you can start using Python like a calculator right away.
 
 Installation
 ------------
@@ -21,31 +21,36 @@ Installation
 Use as a calculator
 -------------------
 ``
-$ fx
+$ fxy
 ``
-
 (pass, ``-i`` for IPython)
 
 Usage as imports
 ----------------
 
-- ``from fxy.calc import *`` for quick CALC - basic ``mpmath`` calculator
+- ``from fxy.calc import *`` for quick CALC - basic ``mpmath`` calculator, and ``eday`` for time
 - ``from fxy.cas import *`` for basic CAS software ("Symbolic") emulation
 - ``from fxy.lab import *`` for LAB software ("Numeric") emulation
 - ``from fxy.plot import *`` for plotting imports.
 
 Usage as command
 ----------------
-The package defines the `fx` command, if you just want Python with something, run:
+The package defines the `fxy` command, if you just want Python with something, run:
 
-- ``$ fx --calc`` starts Python with CALC imports (basic ``mpmath`` calculator)
-- ``$ fx --cas`` (or ``-x``) starts Python with CAS (Computer Algebra System) imports (to emulate Maple, Matematica,..) 
-- ``$ fx --lab`` (or ``-y``) starts Python with LAB (Linear AlgeBra system) imports (to emulate MATLAB, R,...)
-- ``$ fx --plot`` (or ``-p``) for plotting imports
+- ``$ fxy --calc`` starts Python with CALC imports (basic ``mpmath`` calculator)
+- ``$ fxy --cas`` (or ``-x``) starts Python with CAS (Computer Algebra System) imports (to emulate Maple, Matematica,..)
+- ``$ fxy --lab`` (or ``-y``) starts Python with LAB (Linear AlgeBra system) imports (to emulate MATLAB, R,...)
+- ``$ fxy --plot`` (or ``-p``) for plotting imports
 
 So, for example, if you want LAB imports with plotting and in IPython, then you'd:
 
-- ``$ fx -ip --lab``
+- ``$ fxy -ip --lab``
+
+You can also run the equivalent of `--calc` environment, that imports ``mpmath`` and ``eday``, like this:
+
+``
+python -m fxy "pi**2"
+``
 
 The following are usage examples.
 
@@ -108,14 +113,14 @@ If you envy ``R`` users being able to start their 'calculator' with just one key
 
     function f() {
         . ~/.venv/bin/activate
-        fx "$@"
+        fxy "$@"
     }
     function F() {
         f -ix # (your custom pre-configuration you often use)
     }
 
 
-Aliasing ``fx`` as ``f`` command as simplest generic, and commonly used specific as ``F`` command makes it possible to:
+Aliasing ``fxy`` as ``f`` command as simplest generic, and commonly used specific as ``F`` command makes it possible to:
 
 - Use ``f`` to start Python with just ``mpmath`` for fastest scientific calculations without ``IPython``.
 - Use ``F`` to start Python with some specific other pre-configuration that you often use (e.g., ``f -ix`` emulates ``isympy``).
