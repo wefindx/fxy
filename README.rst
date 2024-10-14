@@ -20,9 +20,7 @@ Installation
 
 Use as a calculator
 -------------------
-``
-$ fxy
-``
+``$ fxy``
 (pass, ``-i`` for IPython)
 
 Usage as imports
@@ -48,9 +46,7 @@ So, for example, if you want LAB imports with plotting and in IPython, then you'
 
 You can also run the equivalent of `--calc` environment, that imports ``mpmath`` and ``eday``, like this:
 
-``
-python -m fxy "pi**2"
-``
+``python -m fxy "pi**2"``
 
 The following are usage examples.
 
