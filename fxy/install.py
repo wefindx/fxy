@@ -11,33 +11,8 @@ from appdirs import user_config_dir
 from setuptools.command.install import install
 from pathlib import Path
 
-# Create the configuration directory
-config_dir = user_config_dir("fxy")
-
-
-def save_variable_to_json(variable_name, variable_value, filename):
-    """Saves a variable to a specified JSON file in the config directory."""
-    config_dir = user_config_dir("fxy")
-
-    config_file = os.path.join(config_dir, filename)
-
-    # Load existing variables if the file exists
-    if os.path.exists(config_file):
-        with open(config_file, 'r') as f:
-            variables = json.load(f)
-    else:
-        variables = {}
-
-    variables[variable_name] = variable_value
-
-    with open(config_file, 'w') as f:
-        json.dump(variables, f)
-
-def save_kernel_info(kernel_name):
-    save_variable_to_json(kernel_name, {"status": "created"}, 'state.json')
 
 def ensure_ipython_profile_exists(profile_name, exec_lines=[]):
-    Path(config_dir).mkdir(parents=True, exist_ok=True)
 
     ipython_dir = get_ipython_dir()
     profile_dir = os.path.join(ipython_dir, f"profile_{profile_name}")
@@ -58,7 +33,7 @@ def ensure_ipython_profile_exists(profile_name, exec_lines=[]):
     return profile_dir
 
 def install_my_kernel_spec(kernel_name, exec_lines=[]):
-    profile_path = ensure_ipython_profile_exists(kernel_name, exec_lines) #"/home/mindey/.ipython/profile_cas"
+    profile_path = ensure_ipython_profile_exists(kernel_name, exec_lines)
 
     kernel_json = {
      "argv": [
@@ -84,7 +59,13 @@ def install_my_kernel_spec(kernel_name, exec_lines=[]):
             json.dump(kernel_json, f, sort_keys=True)
 
         KernelSpecManager().install_kernel_spec(td, kernel_name, user=True)
-        save_kernel_info(kernel_name)
+        # Removed save_kernel_info call
+
+def kernel_exists(kernel_name):
+    """Check if the kernel exists using KernelSpecManager."""
+    ksm = KernelSpecManager()
+    kernels = ksm.get_all_specs()
+    return kernel_name in kernels
 
 if __name__ == '__main__':
     install_my_kernel_spec('fxy_calc', ['from fxy.calc import *', 'from fxy.plot import *'])

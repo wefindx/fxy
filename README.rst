@@ -111,12 +111,16 @@ If you envy ``R`` users being able to start their 'calculator' with just one key
 
 ::
 
+    # Basic Calculaor
     function f() {
         . ~/.venv/bin/activate
         fxy "$@"
     }
+
+    # Computer Algebra System
     function F() {
-        f -ix # (your custom pre-configuration you often use)
+        . ~/.venv/bin/activate
+        fxy --qt --cas
     }
 
 

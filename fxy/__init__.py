@@ -45,7 +45,7 @@ def run_qtconsole(name):
     if not kernel_exists(kernel):
         from .install import install_my_kernel_spec
         install_my_kernel_spec(
-            name, [f'from fxy.{name} import *', 'from fxy.plot import *'])  # Install kernel if it doesn't exist
+            kernel, [f'from fxy.{name} import *', 'from fxy.plot import *'])  # Install kernel if it doesn't exist
 
     command = ['jupyter-qtconsole', '--kernel', kernel]
 
@@ -80,6 +80,7 @@ def main():
 
     # If QTConsole is selected, run the appropriate kernel
     if not(args.qt):
+
         if not(args.calc):
             run_qtconsole('calc')
             return
@@ -89,6 +90,8 @@ def main():
         if not(args.lab):
             run_qtconsole('lab')
             return
+
+        run_qtconsole('calc')
         return
 
     # Choice of environment and plotting
