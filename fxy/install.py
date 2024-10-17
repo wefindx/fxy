@@ -35,9 +35,15 @@ def ensure_ipython_profile_exists(profile_name, exec_lines=[]):
 def install_my_kernel_spec(kernel_name, exec_lines=[]):
     profile_path = ensure_ipython_profile_exists(kernel_name, exec_lines)
 
+    import os, sys, platform
+    if platform.system() == 'Windows':
+        python_executable = os.path.join(Path(sys.prefix), 'Scripts', 'python.exe')
+    else:
+        python_executable = os.path.join(Path(sys.prefix), 'bin', 'python')
+
     kernel_json = {
      "argv": [
-      "/home/mindey/.venv/bin/python3",
+      python_executable,
       "-Xfrozen_modules=off",
       "-m",
       "ipykernel_launcher",
