@@ -2,7 +2,7 @@ fxy
 ===
 .. |isympy| replace:: ``isympy``
 
-Imports and command ``fxy`` with parameters to import libraries often used in research to emulate CAS software, or LAB software.
+Imports and command ``fxy`` with parameters to import libraries often used in research to emulate CAS software, or LAB software. For more info, check out the video https://www.youtube.com/watch?v=ZJvUIoCHg0o .
 
 Introduction
 ------------
