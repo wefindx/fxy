@@ -89,6 +89,7 @@ def main():
         if not(args.lab):
             run_qtconsole('lab')
             return
+        return
 
     # Choice of environment and plotting
     mode = not(args.ipython)

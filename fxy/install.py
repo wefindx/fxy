@@ -13,7 +13,6 @@ from pathlib import Path
 
 # Create the configuration directory
 config_dir = user_config_dir("fxy")
-Path(config_dir).mkdir(parents=True, exist_ok=True)
 
 
 def save_variable_to_json(variable_name, variable_value, filename):
@@ -38,6 +37,8 @@ def save_kernel_info(kernel_name):
     save_variable_to_json(kernel_name, {"status": "created"}, 'state.json')
 
 def ensure_ipython_profile_exists(profile_name, exec_lines=[]):
+    Path(config_dir).mkdir(parents=True, exist_ok=True)
+
     ipython_dir = get_ipython_dir()
     profile_dir = os.path.join(ipython_dir, f"profile_{profile_name}")
 

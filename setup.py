@@ -5,7 +5,7 @@ with open('README.rst', 'r') as f:
 
 setup(
     name='fxy',
-    version='0.7.3',
+    version='0.7.4',
     description='Convenience imports and scientific functions.',
     long_description=long_description,
     long_description_content_type='text/x-rst',
