@@ -43,9 +43,9 @@ def run_qtconsole(name):
         return False
 
     if not kernel_exists(kernel):
-        from .install import install_my_kernel_spec
+        from .kernels import install_my_kernel_spec
         install_my_kernel_spec(
-            kernel, [f'from fxy.{name} import *', 'from fxy.plot import *'])  # Install kernel if it doesn't exist
+            kernel, [f'from fxy.{name} import *', 'from fxy.plot import *'])
 
     command = ['jupyter-qtconsole', '--kernel', kernel]
 
