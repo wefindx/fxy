@@ -5,7 +5,7 @@ with open('README.rst', 'r') as f:
 
 setup(
     name='fxy',
-    version='0.7.1',
+    version='0.7.3',
     description='Convenience imports and scientific functions.',
     long_description=long_description,
     long_description_content_type='text/x-rst',
@@ -13,13 +13,13 @@ setup(
     author='Mindey',
     author_email='mindey@mindey.com',
     license='UNLICENSE',
-    packages = find_packages(exclude=['docs', 'tests*']),
-    install_requires=['mpmath', 'ipython', 'sympy', 'xarray', 'matplotlib', 'scikit-learn', 'scipy', 'statsmodels', 'seaborn', 'PyQt5', 'windows-curses >= 2.2.0 ; platform_system=="Windows"', 'eday', 'jupyter_client'],
-    extras_require = {
+    packages=find_packages(exclude=['docs', 'tests*']),
+    install_requires=['mpmath', 'ipython', 'sympy', 'xarray', 'matplotlib', 'scikit-learn', 'scipy', 'statsmodels', 'seaborn', 'PyQt5', 'windows-curses >= 2.2.0 ; platform_system=="Windows"', 'eday', 'jupyter_client', 'appdirs', 'qtconsole'],
+    extras_require={
         'test': ['coverage', 'pytest', 'pytest-cov'],
     },
     zip_safe=False,
-    entry_points = {
+    entry_points={
         'console_scripts': [
             'fxy=fxy:main'
         ],

@@ -7,6 +7,36 @@ from IPython.paths import get_ipython_dir
 from IPython.paths import get_ipython_dir
 from IPython.core.profiledir import ProfileDir
 
+from appdirs import user_config_dir
+from setuptools.command.install import install
+from pathlib import Path
+
+# Create the configuration directory
+config_dir = user_config_dir("fxy")
+Path(config_dir).mkdir(parents=True, exist_ok=True)
+
+
+def save_variable_to_json(variable_name, variable_value, filename):
+    """Saves a variable to a specified JSON file in the config directory."""
+    config_dir = user_config_dir("fxy")
+
+    config_file = os.path.join(config_dir, filename)
+
+    # Load existing variables if the file exists
+    if os.path.exists(config_file):
+        with open(config_file, 'r') as f:
+            variables = json.load(f)
+    else:
+        variables = {}
+
+    variables[variable_name] = variable_value
+
+    with open(config_file, 'w') as f:
+        json.dump(variables, f)
+
+def save_kernel_info(kernel_name):
+    save_variable_to_json(kernel_name, {"status": "created"}, 'state.json')
+
 def ensure_ipython_profile_exists(profile_name, exec_lines=[]):
     ipython_dir = get_ipython_dir()
     profile_dir = os.path.join(ipython_dir, f"profile_{profile_name}")
@@ -53,8 +83,9 @@ def install_my_kernel_spec(kernel_name, exec_lines=[]):
             json.dump(kernel_json, f, sort_keys=True)
 
         KernelSpecManager().install_kernel_spec(td, kernel_name, user=True)
+        save_kernel_info(kernel_name)
 
 if __name__ == '__main__':
-    install_my_kernel_spec('calc_qt', ['from fxy.calc import *'])
-    install_my_kernel_spec('cas_qt', ['from fxy.cas import *'])
-    install_my_kernel_spec('lab_qt', ['from fxy.lab import *', 'from fxy.plot import *'])
+    install_my_kernel_spec('fxy_calc', ['from fxy.calc import *', 'from fxy.plot import *'])
+    install_my_kernel_spec('fxy_cas', ['from fxy.cas import *', 'from fxy.plot import *'])
+    install_my_kernel_spec('fxy_lab', ['from fxy.lab import *', 'from fxy.plot import *'])
